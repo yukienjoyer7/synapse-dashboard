@@ -1,0 +1,33 @@
+/* Targeted component refinements from the SYNAPSE HealthOps design system. */
+.st-key-page-header h1 {
+  letter-spacing: -0.02em;
+  margin-bottom: 0.25rem;
+}
+
+.st-key-active-filter-summary {
+  border-left: 4px solid #005eb8 !important;
+}
+
+[class*="st-key-kpi-row"] [data-testid="stMetricValue"] {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+[class*="st-key-kpi-row"] [data-testid="stMetricDelta"] {
+  white-space: normal;
+}
+
+[class*="st-key-"][class*="-card"] {
+  box-shadow: 0 1px 2px rgba(33, 43, 50, 0.06);
+}
+
+[class*="st-key-"][class*="chart-card"] {
+  background: #ffffff;
+}
+
+@media (max-width: 768px) {
+  [class*="st-key-kpi-row"] {
+    flex-direction: column !important;
+  }
+}
+

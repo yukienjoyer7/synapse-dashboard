@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import streamlit as st
 
+from dashboard.components.style import load_styles
 from dashboard.data_loader import ArtifactContractError, load_artifacts
 from dashboard.filters import render_global_filters
 from dashboard.state import initialize_session_state
@@ -15,6 +16,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
+load_styles()
 initialize_session_state()
 
 pages = [
