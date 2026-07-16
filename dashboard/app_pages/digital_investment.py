@@ -21,6 +21,7 @@ from dashboard.components.common import (
 )
 from dashboard.components.tables import render_paginated_table
 from dashboard.context import get_page_context
+from dashboard.utils.export import render_csv_download
 from dashboard.utils.formatting import (
     format_decimal,
     format_percentage,
@@ -199,6 +200,18 @@ render_paginated_table(
         "iot_per_100_bed": st.column_config.NumberColumn("IoT/100 bed", format="%.1f"),
         "investment_conversion_segment": "Segmen konversi",
     },
+)
+table_filter_summary = context.filter_summary
+if search:
+    table_filter_summary += f"; pencarian tabel={search}"
+render_csv_download(
+    action_table,
+    label="Unduh daftar investigasi",
+    filename="healthops_investigasi_konversi.csv",
+    key="download-digital-investigation",
+    active_filters=table_filter_summary,
+    benchmark_definition="Ekspektasi OOF dan gap peer kelas dari artefak notebook",
+    data_version=bundle.data_version,
 )
 
 if st.session_state.get("selected_hospital_id"):

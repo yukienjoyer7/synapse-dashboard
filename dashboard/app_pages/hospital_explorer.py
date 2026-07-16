@@ -20,6 +20,7 @@ from dashboard.components.common import (
 from dashboard.components.tables import render_paginated_table
 from dashboard.context import get_page_context
 from dashboard.state import set_selected_hospital
+from dashboard.utils.export import render_csv_download
 from dashboard.utils.formatting import (
     format_minutes,
     format_score,
@@ -224,6 +225,17 @@ render_paginated_table(
             "Prioritas", min_value=0, max_value=1, format="%.3f"
         ),
     },
+)
+render_csv_download(
+    peer_table,
+    label="Unduh cohort pembanding",
+    filename=f"healthops_peer_{selected_id}.csv",
+    key="download-hospital-peers",
+    active_filters=f"Rumah sakit terpilih={selected_id}; filter global tidak diterapkan pada peer",
+    benchmark_definition=(
+        f"Seluruh rumah sakit Kelas {selected['kelas_rumah_sakit']} (n={len(peer_group)})"
+    ),
+    data_version=bundle.data_version,
 )
 
 render_method_note(

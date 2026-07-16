@@ -21,6 +21,7 @@ from dashboard.components.common import (
 )
 from dashboard.components.tables import render_paginated_table
 from dashboard.context import get_page_context
+from dashboard.utils.export import render_csv_download
 from dashboard.utils.formatting import (
     format_days,
     format_decimal,
@@ -222,6 +223,17 @@ render_paginated_table(
             "Beban", min_value=0, max_value=1, format="%.2f"
         ),
     },
+)
+render_csv_download(
+    operational_table,
+    label="Unduh pembanding operasional",
+    filename="healthops_pembanding_operasional.csv",
+    key="download-operational-comparison",
+    active_filters=context.filter_summary,
+    benchmark_definition=(
+        "Peer kelas tetap untuk burden; median nasional untuk KPI; model gabungan full sample"
+    ),
+    data_version=bundle.data_version,
 )
 
 render_method_note(

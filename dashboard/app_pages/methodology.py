@@ -11,6 +11,7 @@ from dashboard.components.charts import render_chart
 from dashboard.components.charts_methodology import build_missingness_chart
 from dashboard.components.common import KpiCard, render_kpi_row, render_page_header
 from dashboard.context import get_page_context
+from dashboard.utils.export import render_csv_download
 from dashboard.utils.formatting import format_integer, format_percentage
 
 context = get_page_context()
@@ -355,6 +356,15 @@ with model_tab:
         ).drop(columns=["term"]),
         "methodology-association-estimates",
     )
+    render_csv_download(
+        bundle.adjusted_associations,
+        label="Unduh estimasi asosiasi",
+        filename="healthops_estimasi_asosiasi.csv",
+        key="download-methodology-associations",
+        active_filters="Tidak berlaku; model menggunakan full sample notebook",
+        benchmark_definition="Model gabungan dan model focal-term dengan robust SE HC3",
+        data_version=bundle.data_version,
+    )
 
     st.subheader("Performa model", anchor=False)
     maturity_models = pd.DataFrame(bundle.model_metrics["maturity_model"])
@@ -404,6 +414,15 @@ with quality_tab:
         }
     ).sort_values(["Missing", "Variabel"], ascending=[False, True])
     _render_table(quality_table, "methodology-quality-table")
+    render_csv_download(
+        quality,
+        label="Unduh audit kualitas data",
+        filename="healthops_audit_kualitas_data.csv",
+        key="download-methodology-quality",
+        active_filters="Tidak berlaku; audit mencakup data sumber lengkap",
+        benchmark_definition="Audit source-level sebelum cleaning dan imputasi",
+        data_version=bundle.data_version,
+    )
 
     st.subheader("Validasi artefak runtime", anchor=False)
     validation = pd.DataFrame(

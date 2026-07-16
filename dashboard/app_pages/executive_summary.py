@@ -20,6 +20,7 @@ from dashboard.components.common import (
 )
 from dashboard.components.tables import render_paginated_table
 from dashboard.context import get_page_context
+from dashboard.utils.export import render_csv_download
 from dashboard.utils.formatting import (
     format_decimal,
     format_minutes,
@@ -188,6 +189,15 @@ render_paginated_table(
         ),
         "root_cause_primary": "Hambatan dominan",
     },
+)
+render_csv_download(
+    hospitals,
+    label="Unduh portofolio terfilter",
+    filename="healthops_portofolio_terfilter.csv",
+    key="download-executive-portfolio",
+    active_filters=context.filter_summary,
+    benchmark_definition="Seluruh portofolio nasional; peer tetap menurut kelas",
+    data_version=bundle.data_version,
 )
 
 if st.session_state.get("selected_hospital_id"):

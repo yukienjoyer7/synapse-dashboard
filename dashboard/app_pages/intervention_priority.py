@@ -20,6 +20,7 @@ from dashboard.components.common import (
 )
 from dashboard.components.tables import render_paginated_table
 from dashboard.context import get_page_context
+from dashboard.utils.export import render_csv_download
 from dashboard.utils.formatting import format_decimal, format_percentage, format_score
 
 context = get_page_context()
@@ -205,6 +206,22 @@ render_paginated_table(
         "recommended_intervention": "Intervensi",
     },
 )
+local_filters = [context.filter_summary]
+if search:
+    local_filters.append(f"pencarian tabel={search}")
+if tier_filter:
+    local_filters.append(f"tier={', '.join(tier_filter)}")
+if bottleneck_filter:
+    local_filters.append(f"hambatan={', '.join(bottleneck_filter)}")
+render_csv_download(
+    action_table,
+    label="Unduh daftar tindakan",
+    filename="healthops_daftar_tindakan.csv",
+    key="download-priority-actions",
+    active_filters="; ".join(local_filters),
+    benchmark_definition="Peer kelas tetap; skor dan tier dari artefak notebook",
+    data_version=bundle.data_version,
+)
 
 st.subheader("Rencana tindakan per cohort", anchor=False)
 st.caption(
@@ -232,6 +249,15 @@ st.dataframe(
         "kpi": "KPI monitoring",
         "risiko_utama": "Risiko implementasi",
     },
+)
+render_csv_download(
+    bundle.recommendations,
+    label="Unduh rencana cohort",
+    filename="healthops_rencana_cohort.csv",
+    key="download-priority-cohorts",
+    active_filters="Tidak berlaku; rekomendasi mencakup seluruh portofolio",
+    benchmark_definition="Cohort primary root cause dari artefak notebook",
+    data_version=bundle.data_version,
 )
 
 selected_id = st.session_state.get("selected_hospital_id")
