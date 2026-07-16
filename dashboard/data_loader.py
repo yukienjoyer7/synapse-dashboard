@@ -11,7 +11,6 @@ from typing import Any
 import pandas as pd
 import streamlit as st
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 ARTIFACT_DIR = PROJECT_ROOT / "synapse_artifacts"
 EXPECTED_HOSPITAL_COUNT = 276
@@ -262,4 +261,3 @@ def load_artifacts() -> ArtifactBundle:
     )
     _validate_bundle(bundle)
     return bundle
-
