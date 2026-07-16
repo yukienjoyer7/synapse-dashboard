@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from pathlib import Path
+
 import pandas as pd
 import streamlit as st
 
@@ -207,7 +209,7 @@ if st.session_state.get("selected_hospital_id"):
             icon=":material/open_in_new:",
             type="primary",
         ):
-            st.switch_page("app_pages/hospital_explorer.py")
+            st.switch_page(Path(__file__).with_name("hospital_explorer.py"))
 
 render_method_note(
     "Cara membaca ringkasan",

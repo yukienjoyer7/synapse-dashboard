@@ -1,75 +1,14 @@
-"""SYNAPSE HealthOps multipage Streamlit entry point."""
+"""Backward-compatible launcher for deployments configured with dashboard/app.py."""
 
 from __future__ import annotations
 
-import streamlit as st
+import importlib
+import sys
+from pathlib import Path
 
-from dashboard.components.style import load_styles
-from dashboard.data_loader import ArtifactContractError, load_artifacts
-from dashboard.filters import render_global_filters
-from dashboard.state import initialize_session_state
+project_root = Path(__file__).resolve().parents[1]
+if str(project_root) not in sys.path:
+    sys.path.insert(0, str(project_root))
 
-st.set_page_config(
-    page_title="SYNAPSE HealthOps",
-    page_icon=":material/health_metrics:",
-    layout="wide",
-    initial_sidebar_state="expanded",
-)
-
-load_styles()
-initialize_session_state()
-
-pages = [
-    st.Page(
-        "app_pages/executive_summary.py",
-        title="Ringkasan eksekutif",
-        icon=":material/dashboard:",
-        url_path="ringkasan",
-        default=True,
-    ),
-    st.Page(
-        "app_pages/digital_investment.py",
-        title="Kesiapan digital & investasi",
-        icon=":material/hub:",
-        url_path="kesiapan-digital",
-    ),
-    st.Page(
-        "app_pages/operational_impact.py",
-        title="Dampak terhadap operasional",
-        icon=":material/query_stats:",
-        url_path="dampak-operasional",
-    ),
-    st.Page(
-        "app_pages/intervention_priority.py",
-        title="Prioritas intervensi",
-        icon=":material/priority_high:",
-        url_path="prioritas",
-    ),
-    st.Page(
-        "app_pages/hospital_explorer.py",
-        title="Eksplorasi rumah sakit",
-        icon=":material/domain:",
-        url_path="rumah-sakit",
-    ),
-    st.Page(
-        "app_pages/methodology.py",
-        title="Metodologi & kualitas data",
-        icon=":material/fact_check:",
-        url_path="metodologi",
-    ),
-]
-
-navigation = st.navigation(pages, position="sidebar")
-
-try:
-    artifacts = load_artifacts()
-except ArtifactContractError as error:
-    st.error(str(error), icon=":material/error:")
-    st.stop()
-
-with st.sidebar:
-    st.caption("SYNAPSE HealthOps · Smart Hospital Analytics")
-    render_global_filters(artifacts.hospitals)
-    st.caption(f"Versi data: `{artifacts.data_version}` · n={len(artifacts.hospitals)}")
-
-navigation.run()
+application = importlib.import_module("dashboard.application")
+application.run_dashboard()

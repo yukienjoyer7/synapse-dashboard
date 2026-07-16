@@ -52,7 +52,7 @@ Install the locked environment and start the app:
 
 ```bash
 uv sync --frozen --group dev
-uv run --group dev streamlit run dashboard/app.py
+uv run --group dev streamlit run streamlit_app.py
 ```
 
 Streamlit opens at `http://localhost:8501` by default. No secrets or environment
@@ -73,7 +73,8 @@ peer medians, export metadata, chart builders, and all Streamlit entry points.
 
 ```text
 dashboard/
-  app.py                  Multipage shell, navigation, and global sidebar
+  application.py          Multipage shell, navigation, and global sidebar
+  app.py                  Backward-compatible legacy launcher
   app_pages/              Six decision-oriented pages
   components/             Reusable charts, cards, tables, and visual theme
   styles/                 Scoped design-system CSS
@@ -83,6 +84,7 @@ synapse_artifacts/        Versioned runtime CSV and JSON artifacts
 docs/                     Product context, design system, structure, and stack specs
 tests/                    Unit, contract, chart, and Streamlit smoke tests
 .streamlit/config.toml    HealthOps theme and browser configuration
+streamlit_app.py          Canonical local and Community Cloud entry point
 pyproject.toml            Runtime and development dependencies
 uv.lock                   Reproducible dependency lock
 ```
@@ -129,7 +131,7 @@ an explicit contract error instead of generating fallback data.
 The repository is ready for Streamlit Community Cloud:
 
 1. Select this GitHub repository and the `main` branch.
-2. Set the main file path to `dashboard/app.py`.
+2. Set the main file path to `streamlit_app.py`.
 3. Deploy without secrets; all runtime artifacts are versioned in the repository.
 
 `uv.lock` and `pyproject.toml` define the environment. The app is repository-ready but

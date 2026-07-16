@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from pathlib import Path
+
 import streamlit as st
 
 from dashboard.components.charts import render_chart
@@ -274,7 +276,7 @@ if selected_id:
                 icon=":material/open_in_new:",
                 type="primary",
             ):
-                st.switch_page("app_pages/hospital_explorer.py")
+                st.switch_page(Path(__file__).with_name("hospital_explorer.py"))
 
 weights = bundle.analysis_config["priority_weights"]
 render_method_note(
