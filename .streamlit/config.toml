@@ -1,0 +1,42 @@
+[theme]
+base = "light"
+primaryColor = "#005EB8"
+backgroundColor = "#F7F9FA"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#212B32"
+linkColor = "#005EB8"
+borderColor = "#D8DDE0"
+redColor = "#A2191F"
+redBackgroundColor = "#FFF1F1"
+redTextColor = "#A2191F"
+orangeColor = "#B28600"
+orangeBackgroundColor = "#FFF7E0"
+orangeTextColor = "#7A5B00"
+greenColor = "#006747"
+greenBackgroundColor = "#EAF6EE"
+greenTextColor = "#006747"
+blueColor = "#005EB8"
+blueBackgroundColor = "#EAF5FC"
+blueTextColor = "#004B76"
+violetColor = "#6929C4"
+grayColor = "#4C6272"
+chartCategoricalColors = ["#005EB8", "#007D79", "#6929C4", "#1192E8", "#9F1853", "#198038", "#002D9C", "#B28600"]
+dataframeBorderColor = "#D8DDE0"
+dataframeHeaderBackgroundColor = "#F2F4F5"
+font = "sans-serif"
+baseFontSize = 15
+baseRadius = "6px"
+buttonRadius = "4px"
+showWidgetBorder = true
+showSidebarBorder = true
+
+[theme.sidebar]
+backgroundColor = "#F2F4F5"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#212B32"
+borderColor = "#D8DDE0"
+primaryColor = "#005EB8"
+
+[browser]
+gatherUsageStats = false
+

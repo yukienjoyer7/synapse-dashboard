@@ -1,0 +1,2 @@
+"""SYNAPSE HealthOps dashboard package."""
+
