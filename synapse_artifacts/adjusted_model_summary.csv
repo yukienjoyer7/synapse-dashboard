@@ -1,0 +1,5 @@
+model,n,p,r2,condition_number,focal_terms
+Gabungan,275,15,0.17981944382860293,666.6445511729534,"maturity_per_10, rme_bin, satusehat_bin"
+Kematangan saja,275,13,0.1716763131862109,660.5432264037867,maturity_per_10
+RME saja,275,13,0.0502026537136967,586.8172335159769,rme_bin
+SatuSehat saja,275,13,0.0511162366408453,585.4788844957639,satusehat_bin

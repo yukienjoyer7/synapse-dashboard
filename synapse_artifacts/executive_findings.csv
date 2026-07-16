@@ -1,0 +1,8 @@
+area,temuan
+Scope,Hasil menggambarkan sampel 276 rumah sakit dan tidak diklaim sebagai estimasi nasional.
+Kesiapan digital,"Median kematangan 57,7; RME 92,0%; SatuSehat 85,9%."
+Investasi,"Anggaran IT absolut berkorelasi kuat dengan kematangan (rho=0,795), tetapi anggaran per tempat tidur hanya rho=0,252."
+Operasional,"Kenaikan 10 poin kematangan berasosiasi dengan respons 4,27 menit lebih singkat; model individual gagal gate (R² CV=0,003)."
+Prioritas,"Base case mengidentifikasi 7 rumah sakit; rentang sensitivitas 2–14; empat ID stabil adalah RS0257, RS0262, RS0223, dan RS0241."
+Konversi investasi,17 rumah sakit memenuhi definisi ketat outlier konversi investasi dan perlu audit sebelum ekspansi anggaran.
+Keputusan,"Lakukan asesmen 90 hari, audit manfaat investasi, dan pilot longitudinal; peer-gap bukan target resmi atau estimasi kausal."

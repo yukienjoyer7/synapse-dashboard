@@ -1,0 +1,23 @@
+{
+  "random_state": 42,
+  "bor_reference_range": [
+    60,
+    85
+  ],
+  "digital_deficit_quantile": 0.25,
+  "operational_burden_quantile": 0.75,
+  "conversion_underperformance_z": -1.0,
+  "root_cause_primary_threshold": 0.75,
+  "root_cause_secondary_threshold": 0.65,
+  "priority_weights": {
+    "digital_deficit": 0.35,
+    "operational_burden": 0.45,
+    "investment_underperformance": 0.2
+  },
+  "model_governance": {
+    "min_r2_for_scenario": 0.1,
+    "min_mae_improvement_for_scenario": 0.05,
+    "min_r2_for_explainability": 0.02,
+    "min_mae_improvement_for_explainability": 0.02
+  }
+}

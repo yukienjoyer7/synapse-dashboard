@@ -1,0 +1,49 @@
+{
+  "maturity_model": [
+    {
+      "model": "Random Forest",
+      "MAE": 10.081547020283574,
+      "RMSE": 12.783782273122796,
+      "R2": 0.5423910942003648
+    },
+    {
+      "model": "Ridge",
+      "MAE": 12.958721743104002,
+      "RMSE": 22.06040096727187,
+      "R2": -0.36270716984785234
+    }
+  ],
+  "operational_model": [
+    {
+      "model": "Ridge",
+      "MAE_mean": 16.597052454628805,
+      "MAE_std": 1.6314836437437286,
+      "RMSE_mean": 20.886453343339316,
+      "R2_mean": 0.0030868483201555107,
+      "R2_std": 0.1177166988939099
+    },
+    {
+      "model": "Random Forest",
+      "MAE_mean": 16.822189040563433,
+      "MAE_std": 1.6305117542353953,
+      "RMSE_mean": 20.64465995310811,
+      "R2_mean": 0.022890644099121633,
+      "R2_std": 0.09691113226017463
+    },
+    {
+      "model": "Mean Baseline",
+      "MAE_mean": 16.83441652892562,
+      "MAE_std": 1.4407935642461505,
+      "RMSE_mean": 21.21713884303091,
+      "R2_mean": -0.026268983277145917,
+      "R2_std": 0.034624827374535
+    }
+  ],
+  "model_governance": {
+    "best_candidate": "Ridge",
+    "mae_improvement_vs_baseline": 0.014099928791055177,
+    "scenario_model_eligible": false,
+    "explainability_model_eligible": false,
+    "explainability_method": "Tidak dilaporkan — model gagal validation gate"
+  }
+}

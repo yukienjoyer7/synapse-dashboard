@@ -1,0 +1,5 @@
+outcome,arah_interpretasi,n,spearman_rho_dengan_maturity,spearman_p,median_maturity_rendah,median_maturity_menengah,median_maturity_tinggi,kruskal_p_tertile
+Waktu respons rujukan,lebih rendah lebih baik,275,-0.2934874357065695,7.259158065876476e-07,52.650000000000006,45.4,39.3,0.00021335481156603051
+Tekanan BOR,lebih rendah lebih baik,275,0.01762050867479157,0.7711318668499506,0.0,0.0,0.0,0.9720850721398395
+Lama rawat,interpretasi terbatas tanpa case mix,275,-0.10345604611769048,0.08682157791884985,4.3,4.3,4.0,0.21063029540407435
+Adopsi telemedicine,lebih tinggi menunjukkan adopsi lebih besar,276,0.4004094573145017,4.735033313340362e-12,54.848966613672495,98.21428571428571,110.29578147729109,3.16092720370924e-08
