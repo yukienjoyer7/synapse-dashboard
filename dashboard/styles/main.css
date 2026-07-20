@@ -36,7 +36,7 @@ body,
 
 [data-testid="stMainBlockContainer"] {
   width: min(100%, 96rem);
-  padding: 2.15rem clamp(1.25rem, 3vw, 3.25rem) 5rem;
+  padding: 3.75rem clamp(1.25rem, 3vw, 3.25rem) 5rem;
 }
 
 [data-testid="stVerticalBlock"] {
@@ -281,7 +281,7 @@ textarea:focus-visible,
   }
 
   [data-testid="stMainBlockContainer"] {
-    padding: 1.35rem 1rem 3.5rem;
+    padding: 3.25rem 1rem 3.5rem;
   }
 
   [data-baseweb="tab-list"] {

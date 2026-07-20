@@ -21,7 +21,7 @@ def run_dashboard() -> None:
         page_title="SYNAPSE HealthOps",
         page_icon=":material/health_metrics:",
         layout="wide",
-        initial_sidebar_state="expanded",
+        initial_sidebar_state="auto",
     )
 
     load_styles()

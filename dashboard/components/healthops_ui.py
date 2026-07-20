@@ -171,6 +171,8 @@ COMPONENT_CSS = """
   text-transform: uppercase;
 }
 
+.eyebrow { color: var(--st-blue-text-color, #004b76); }
+
 .version-chip,
 .context-count,
 .status-chip {
@@ -255,7 +257,7 @@ COMPONENT_CSS = """
 
 .kpi-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 0.8rem;
 }
 
@@ -324,9 +326,10 @@ COMPONENT_CSS = """
 
 .kpi-footer {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
+  flex-direction: column;
   justify-content: space-between;
-  gap: 0.6rem;
+  gap: 0.35rem;
   margin-top: 0.72rem;
 }
 
@@ -381,7 +384,7 @@ COMPONENT_CSS = """
   color: var(--st-gray-text-color, #4c6272);
   font-size: 0.68rem;
   line-height: 1.3;
-  text-align: right;
+  text-align: left;
 }
 
 .chart-heading { align-items: flex-start; padding: 0 0 0.65rem; }
@@ -467,7 +470,7 @@ COMPONENT_CSS = """
   color: var(--st-heading-color, #212b32);
   font-family: var(--st-heading-font, var(--st-font));
   font-size: 0.94rem;
-  font-weight: 750;
+  font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.1;
 }
@@ -520,6 +523,10 @@ COMPONENT_CSS = """
 }
 
 @media (max-width: 480px) {
+  .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 359px) {
   .kpi-grid { grid-template-columns: 1fr; }
 }
 
