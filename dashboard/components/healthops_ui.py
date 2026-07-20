@@ -272,6 +272,11 @@ COMPONENT_CSS = """
   background: var(--st-secondary-background-color, #fff);
 }
 
+.kpi-card:focus-visible {
+  outline: 3px solid var(--st-focus-color, #ffdd00);
+  outline-offset: 2px;
+}
+
 .kpi-card::before {
   position: absolute;
   top: 0;
@@ -588,7 +593,10 @@ function renderKpiGrid(root, data) {
     const article = element("article", "kpi-card")
     const tone = toneForStatus(card.status)
     article.dataset.tone = tone
-    if (card.help_text) article.title = card.help_text
+    if (card.help_text) {
+      article.title = card.help_text
+      article.tabIndex = 0
+    }
     article.append(element("p", "kpi-label", card.title))
     const value = element("p", "kpi-value", card.value)
     if (String(card.value || "").length > 20) value.classList.add("is-long")
