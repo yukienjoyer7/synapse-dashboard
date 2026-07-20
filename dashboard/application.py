@@ -6,6 +6,7 @@ from pathlib import Path
 
 import streamlit as st
 
+from dashboard.components.healthops_ui import render_sidebar_brand
 from dashboard.components.style import load_styles
 from dashboard.data_loader import ArtifactContractError, load_artifacts
 from dashboard.filters import render_global_filters
@@ -75,8 +76,8 @@ def run_dashboard() -> None:
         st.stop()
 
     with st.sidebar:
-        st.caption("SYNAPSE HealthOps · Smart Hospital Analytics")
+        render_sidebar_brand(artifacts.data_version, len(artifacts.hospitals))
         render_global_filters(artifacts.hospitals)
-        st.caption(f"Versi data: `{artifacts.data_version}` · n={len(artifacts.hospitals)}")
+        st.caption("Cross-sectional · hospital-level · decision support")
 
     navigation.run()

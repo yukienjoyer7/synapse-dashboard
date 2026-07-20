@@ -7,13 +7,7 @@ from dataclasses import dataclass
 
 import streamlit as st
 
-STATUS_COLORS = {
-    "BAIK": "green",
-    "STABIL": "blue",
-    "PERLU PERHATIAN": "orange",
-    "PRIORITAS": "red",
-    "DATA TERBATAS": "gray",
-}
+from dashboard.components.healthops_ui import mount_healthops_ui
 
 
 @dataclass(frozen=True)
@@ -28,43 +22,63 @@ class KpiCard:
 
 def render_page_header(title: str, decision_question: str, data_version: str) -> None:
     """Render a consistent decision-oriented page introduction."""
-    with st.container(key="page-header"):
-        st.title(title)
-        st.markdown(f"**{decision_question}**")
-        st.caption(
-            f"Data cross-sectional tingkat rumah sakit · versi `{data_version}` · "
-            "hasil bersifat deskriptif, bukan kausal"
-        )
+    mount_healthops_ui(
+        "page_header",
+        {
+            "title": title,
+            "question": decision_question,
+            "data_version": data_version,
+            "eyebrow": "SYNAPSE · Portfolio intelligence",
+            "meta": (
+                "Data cross-sectional tingkat rumah sakit · hasil bersifat deskriptif, bukan kausal"
+            ),
+        },
+        key="healthops-page-header",
+    )
 
 
 def render_filter_context(summary: str, shown: int, total: int) -> None:
     """Keep active filter state and denominator visible above each analysis."""
-    with st.container(border=True, key="active-filter-summary"):
-        st.markdown(f":blue-badge[Filter aktif] {summary}")
-        st.caption(f"Menampilkan {shown} dari {total} rumah sakit.")
-
-
-def render_kpi_card(card: KpiCard, key: str) -> None:
-    """Render one KPI with explicit comparison, status, and denominator."""
-    with st.container(border=True, key=key, height="stretch"):
-        st.metric(
-            label=card.title,
-            value=card.value,
-            delta=card.comparison,
-            delta_color="off",
-            help=card.help_text,
-        )
-        if card.status:
-            st.badge(card.status, color=STATUS_COLORS.get(card.status, "gray"))
-        if card.denominator:
-            st.caption(card.denominator)
+    mount_healthops_ui(
+        "filter_context",
+        {"summary": summary, "shown": shown, "total": total},
+        key="healthops-filter-context",
+    )
 
 
 def render_kpi_row(cards: Iterable[KpiCard], key: str) -> None:
-    """Render a responsive row of bordered KPI cards."""
-    with st.container(horizontal=True, key=key):
-        for index, card in enumerate(cards):
-            render_kpi_card(card, key=f"{key}-card-{index}")
+    """Render a responsive, semantic CCv2 KPI grid."""
+    serialized = [
+        {
+            "title": card.title,
+            "value": card.value,
+            "comparison": card.comparison,
+            "status": card.status,
+            "denominator": card.denominator,
+            "help_text": card.help_text,
+        }
+        for card in cards
+    ]
+    mount_healthops_ui(
+        "kpi_grid",
+        {"cards": serialized, "aria_label": "Indikator utama halaman"},
+        key=f"healthops-{key}",
+    )
+
+
+def render_section_header(
+    title: str,
+    *,
+    subtitle: str | None = None,
+    kicker: str | None = None,
+    key: str,
+) -> None:
+    """Render a consistent section boundary without another boxed container."""
+    mount_healthops_ui(
+        "section_header",
+        {"title": title, "subtitle": subtitle, "kicker": kicker},
+        key=f"healthops-section-{key}",
+    )
 
 
 def render_empty_state() -> None:

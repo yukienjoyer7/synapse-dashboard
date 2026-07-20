@@ -7,6 +7,7 @@ from typing import Any
 import plotly.graph_objects as go
 import streamlit as st
 
+from dashboard.components.healthops_ui import mount_healthops_ui
 from dashboard.state import set_selected_hospital
 
 PLOTLY_CONFIG = {
@@ -38,8 +39,11 @@ def render_chart(
 ) -> str | None:
     """Render an analytical chart card and optionally persist point selection."""
     with st.container(border=True, key=f"{key}-card"):
-        st.markdown(f"**{title}**")
-        st.caption(subtitle)
+        mount_healthops_ui(
+            "chart_header",
+            {"title": title, "subtitle": subtitle, "label": "ANALISIS"},
+            key=f"healthops-chart-header-{key}",
+        )
         if selectable:
             event = st.plotly_chart(
                 figure,
@@ -62,5 +66,9 @@ def render_chart(
                 config=PLOTLY_CONFIG,
             )
             hospital_id = None
-        st.caption(insight)
+        mount_healthops_ui(
+            "chart_insight",
+            {"insight": insight},
+            key=f"healthops-chart-insight-{key}",
+        )
     return hospital_id
