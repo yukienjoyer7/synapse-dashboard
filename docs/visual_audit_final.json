@@ -1,0 +1,92 @@
+{
+  "audit_assumptions": {
+    "audit_type": "Full 12-category design, AI-slop, and accessibility audit",
+    "input": "Streamlit source, theme configuration, shared CSS, inline Components v2, six page structures, and rendered browser evidence",
+    "conformance": "WCAG 2.1 AA",
+    "viewports_verified": [
+      "1440x1100 desktop",
+      "390x844 mobile"
+    ],
+    "verification": [
+      "73 automated tests",
+      "Ruff lint and formatting",
+      "headless Firefox render",
+      "manual semantic and contrast review"
+    ]
+  },
+  "categories": {
+    "visual_hierarchy": {
+      "score": 9.4,
+      "findings": []
+    },
+    "typography": {
+      "score": 9.0,
+      "findings": [
+        {
+          "description": "The configured generic sans-serif stack is deterministic offline but does not guarantee the exact Source Sans 3 face on every host.",
+          "priority": "cosmetic",
+          "fix": "Vendor a licensed Source Sans 3 WOFF2 asset if exact cross-host typography becomes a release requirement.",
+          "impact": 2
+        }
+      ]
+    },
+    "color_contrast": {
+      "score": 9.5,
+      "findings": []
+    },
+    "spacing_layout": {
+      "score": 9.3,
+      "findings": []
+    },
+    "interaction_states": {
+      "score": 9.1,
+      "findings": []
+    },
+    "navigation_ia": {
+      "score": 9.2,
+      "findings": []
+    },
+    "responsive": {
+      "score": 9.2,
+      "findings": [
+        {
+          "description": "Very wide native dataframes remain horizontally scrollable on narrow screens, which preserves data but can require deliberate exploration.",
+          "priority": "low",
+          "fix": "Add a mobile column preset if field usage shows that users regularly inspect dense tables on phones.",
+          "impact": 3
+        }
+      ]
+    },
+    "accessibility": {
+      "score": 9.3,
+      "findings": [
+        {
+          "description": "Custom surfaces are semantic, text statuses do not rely on color, focus-visible rings are explicit, and native Streamlit controls retain labels; a release pipeline accessibility crawler is not yet configured.",
+          "priority": "low",
+          "fix": "Add automated axe-core coverage to deployment QA when browser automation becomes part of CI.",
+          "impact": 3
+        }
+      ]
+    },
+    "motion_animation": {
+      "score": 9.6,
+      "findings": []
+    },
+    "content_microcopy": {
+      "score": 9.4,
+      "findings": []
+    },
+    "ai_slop": {
+      "score": 9.4,
+      "findings": []
+    },
+    "performance_design": {
+      "score": 9.5,
+      "findings": []
+    }
+  },
+  "coherence": {
+    "score": 9.4,
+    "notes": "The governed palette, compact geometry, decision-first hierarchy, semantic status language, chart treatment, and control rail now form one domain-specific HealthOps product system across all pages."
+  }
+}

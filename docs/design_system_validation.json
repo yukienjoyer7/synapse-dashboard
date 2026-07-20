@@ -1,0 +1,161 @@
+{
+  "metadata": {
+    "generated_at": "2026-07-20T19:20:13.541591",
+    "tool": "design_system_validator.py",
+    "version": "2.0.0",
+    "tokens_file": "docs/design_tokens.json",
+    "input_path": "dashboard/styles/main.css"
+  },
+  "compliance_grade": "B",
+  "compliance_rate": 92.5,
+  "summary": {
+    "total_values_checked": 67,
+    "compliant_values": 62,
+    "violations": 5
+  },
+  "category_breakdown": {
+    "colors": {
+      "total": 10,
+      "compliant": 10,
+      "violations": 0,
+      "compliance_rate": 100.0
+    },
+    "spacing": {
+      "total": 26,
+      "compliant": 26,
+      "violations": 0,
+      "compliance_rate": 100.0
+    },
+    "font_sizes": {
+      "total": 7,
+      "compliant": 6,
+      "violations": 1,
+      "compliance_rate": 85.7
+    },
+    "font_weights": {
+      "total": 7,
+      "compliant": 7,
+      "violations": 0,
+      "compliance_rate": 100.0
+    },
+    "line_heights": {
+      "total": 3,
+      "compliant": 3,
+      "violations": 0,
+      "compliance_rate": 100.0
+    },
+    "border_radii": {
+      "total": 3,
+      "compliant": 3,
+      "violations": 0,
+      "compliance_rate": 100.0
+    },
+    "shadows": {
+      "total": 4,
+      "compliant": 0,
+      "violations": 4,
+      "compliance_rate": 0.0
+    },
+    "breakpoints": {
+      "total": 2,
+      "compliant": 2,
+      "violations": 0,
+      "compliance_rate": 100.0
+    },
+    "transitions": {
+      "total": 5,
+      "compliant": 5,
+      "violations": 0,
+      "compliance_rate": 100.0
+    }
+  },
+  "violations_by_category": {
+    "font_sizes": [
+      {
+        "property": "font-size",
+        "value": "0.75rem",
+        "line": 259,
+        "selector": "[data-testid=\"stCaptionContainer\"]",
+        "suggested_token": "0.72rem"
+      }
+    ],
+    "shadows": [
+      {
+        "property": "box-shadow",
+        "value": "1px 2px rgba(33, 43, 50, 0.05)",
+        "line": 91,
+        "selector": "[data-testid=\"stSidebarNav\"] a[aria-current=\"page\"]",
+        "suggested_token": "N/A"
+      },
+      {
+        "property": "box-shadow",
+        "value": "1px 1px rgba(33, 43, 50, 0.08)",
+        "line": 141,
+        "selector": "[data-testid=\"stBaseButton-primary\"]",
+        "suggested_token": "N/A"
+      },
+      {
+        "property": "box-shadow",
+        "value": "1px 2px rgba(33, 43, 50, 0.09)",
+        "line": 197,
+        "selector": "[data-baseweb=\"tab\"][aria-selected=\"true\"]",
+        "suggested_token": "N/A"
+      },
+      {
+        "property": "box-shadow",
+        "value": "1px 2px rgba(33, 43, 50, 0.04)",
+        "line": 228,
+        "selector": "[data-testid=\"stDataFrame\"]",
+        "suggested_token": "N/A"
+      }
+    ]
+  },
+  "all_violations": [
+    {
+      "category": "font_sizes",
+      "property": "font-size",
+      "value": "0.75rem",
+      "normalized_value": "0.75rem",
+      "line": 259,
+      "selector": "[data-testid=\"stCaptionContainer\"]",
+      "raw": "font-size: 0.75rem;",
+      "suggested_token": "0.72rem"
+    },
+    {
+      "category": "shadows",
+      "property": "box-shadow",
+      "value": "1px 2px rgba(33, 43, 50, 0.05)",
+      "normalized_value": "1px 2px rgba(33, 43, 50, 0.05)",
+      "line": 91,
+      "selector": "[data-testid=\"stSidebarNav\"] a[aria-current=\"page\"]",
+      "raw": "box-shadow: inset 3px 0 0 var(--ho-blue), 0 1px 2px rgba(33, 43, 50, 0.05);"
+    },
+    {
+      "category": "shadows",
+      "property": "box-shadow",
+      "value": "1px 1px rgba(33, 43, 50, 0.08)",
+      "normalized_value": "1px 1px rgba(33, 43, 50, 0.08)",
+      "line": 141,
+      "selector": "[data-testid=\"stBaseButton-primary\"]",
+      "raw": "box-shadow: 0 1px 1px rgba(33, 43, 50, 0.08);"
+    },
+    {
+      "category": "shadows",
+      "property": "box-shadow",
+      "value": "1px 2px rgba(33, 43, 50, 0.09)",
+      "normalized_value": "1px 2px rgba(33, 43, 50, 0.09)",
+      "line": 197,
+      "selector": "[data-baseweb=\"tab\"][aria-selected=\"true\"]",
+      "raw": "box-shadow: 0 1px 2px rgba(33, 43, 50, 0.09);"
+    },
+    {
+      "category": "shadows",
+      "property": "box-shadow",
+      "value": "1px 2px rgba(33, 43, 50, 0.04)",
+      "normalized_value": "1px 2px rgba(33, 43, 50, 0.04)",
+      "line": 228,
+      "selector": "[data-testid=\"stDataFrame\"]",
+      "raw": "box-shadow: 0 1px 2px rgba(33, 43, 50, 0.04);"
+    }
+  ]
+}

@@ -1,0 +1,259 @@
+{
+  "metadata": {
+    "generated_at": "2026-07-20T19:20:53.702861",
+    "tool": "color_contrast_checker.py",
+    "version": "2.0.0",
+    "wcag_level": "AA"
+  },
+  "summary": {
+    "total_pairs": 8,
+    "passing": 8,
+    "failing": 0,
+    "errors": 0,
+    "compliance_rate": 100.0
+  },
+  "results": [
+    {
+      "foreground": {
+        "input": "#212B32",
+        "rgb": [
+          33,
+          43,
+          50
+        ],
+        "hex": "#212b32"
+      },
+      "background": {
+        "input": "#FFFFFF",
+        "rgb": [
+          255,
+          255,
+          255
+        ],
+        "hex": "#ffffff"
+      },
+      "contrast_ratio": 14.42,
+      "required_ratio": 4.5,
+      "level": "AA",
+      "text_size": "normal text",
+      "passes": true,
+      "wcag_aa_normal": true,
+      "wcag_aa_large": true,
+      "wcag_aaa_normal": true,
+      "wcag_aaa_large": true,
+      "label": "Primary body text"
+    },
+    {
+      "foreground": {
+        "input": "#4C6272",
+        "rgb": [
+          76,
+          98,
+          114
+        ],
+        "hex": "#4c6272"
+      },
+      "background": {
+        "input": "#F7F9FA",
+        "rgb": [
+          247,
+          249,
+          250
+        ],
+        "hex": "#f7f9fa"
+      },
+      "contrast_ratio": 6.03,
+      "required_ratio": 4.5,
+      "level": "AA",
+      "text_size": "normal text",
+      "passes": true,
+      "wcag_aa_normal": true,
+      "wcag_aa_large": true,
+      "wcag_aaa_normal": false,
+      "wcag_aaa_large": true,
+      "label": "Secondary text on canvas"
+    },
+    {
+      "foreground": {
+        "input": "#FFFFFF",
+        "rgb": [
+          255,
+          255,
+          255
+        ],
+        "hex": "#ffffff"
+      },
+      "background": {
+        "input": "#005EB8",
+        "rgb": [
+          0,
+          94,
+          184
+        ],
+        "hex": "#005eb8"
+      },
+      "contrast_ratio": 6.38,
+      "required_ratio": 4.5,
+      "level": "AA",
+      "text_size": "normal text",
+      "passes": true,
+      "wcag_aa_normal": true,
+      "wcag_aa_large": true,
+      "wcag_aaa_normal": false,
+      "wcag_aaa_large": true,
+      "label": "Primary action"
+    },
+    {
+      "foreground": {
+        "input": "#004B76",
+        "rgb": [
+          0,
+          75,
+          118
+        ],
+        "hex": "#004b76"
+      },
+      "background": {
+        "input": "#EAF5FC",
+        "rgb": [
+          234,
+          245,
+          252
+        ],
+        "hex": "#eaf5fc"
+      },
+      "contrast_ratio": 8.36,
+      "required_ratio": 4.5,
+      "level": "AA",
+      "text_size": "normal text",
+      "passes": true,
+      "wcag_aa_normal": true,
+      "wcag_aa_large": true,
+      "wcag_aaa_normal": true,
+      "wcag_aaa_large": true,
+      "label": "Information status"
+    },
+    {
+      "foreground": {
+        "input": "#006747",
+        "rgb": [
+          0,
+          103,
+          71
+        ],
+        "hex": "#006747"
+      },
+      "background": {
+        "input": "#EAF6EE",
+        "rgb": [
+          234,
+          246,
+          238
+        ],
+        "hex": "#eaf6ee"
+      },
+      "contrast_ratio": 6.24,
+      "required_ratio": 4.5,
+      "level": "AA",
+      "text_size": "normal text",
+      "passes": true,
+      "wcag_aa_normal": true,
+      "wcag_aa_large": true,
+      "wcag_aaa_normal": false,
+      "wcag_aaa_large": true,
+      "label": "On-target status"
+    },
+    {
+      "foreground": {
+        "input": "#7A5B00",
+        "rgb": [
+          122,
+          91,
+          0
+        ],
+        "hex": "#7a5b00"
+      },
+      "background": {
+        "input": "#FFF7E0",
+        "rgb": [
+          255,
+          247,
+          224
+        ],
+        "hex": "#fff7e0"
+      },
+      "contrast_ratio": 5.91,
+      "required_ratio": 4.5,
+      "level": "AA",
+      "text_size": "normal text",
+      "passes": true,
+      "wcag_aa_normal": true,
+      "wcag_aa_large": true,
+      "wcag_aaa_normal": false,
+      "wcag_aaa_large": true,
+      "label": "Watch status"
+    },
+    {
+      "foreground": {
+        "input": "#A2191F",
+        "rgb": [
+          162,
+          25,
+          31
+        ],
+        "hex": "#a2191f"
+      },
+      "background": {
+        "input": "#FFF1F1",
+        "rgb": [
+          255,
+          241,
+          241
+        ],
+        "hex": "#fff1f1"
+      },
+      "contrast_ratio": 7.09,
+      "required_ratio": 4.5,
+      "level": "AA",
+      "text_size": "normal text",
+      "passes": true,
+      "wcag_aa_normal": true,
+      "wcag_aa_large": true,
+      "wcag_aaa_normal": true,
+      "wcag_aaa_large": true,
+      "label": "Priority status"
+    },
+    {
+      "foreground": {
+        "input": "#FFDD00",
+        "rgb": [
+          255,
+          221,
+          0
+        ],
+        "hex": "#ffdd00"
+      },
+      "background": {
+        "input": "#212B32",
+        "rgb": [
+          33,
+          43,
+          50
+        ],
+        "hex": "#212b32"
+      },
+      "contrast_ratio": 10.71,
+      "required_ratio": 3.0,
+      "level": "AA",
+      "text_size": "UI components",
+      "passes": true,
+      "wcag_aa_normal": true,
+      "wcag_aa_large": true,
+      "wcag_aaa_normal": true,
+      "wcag_aaa_large": true,
+      "label": "Focus indicator against ink"
+    }
+  ],
+  "failing_pairs": [],
+  "accessibility_grade": "A"
+}

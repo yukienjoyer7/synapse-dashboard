@@ -1,0 +1,280 @@
+{
+  "metadata": {
+    "generated_at": "2026-07-20T19:18:05.956190",
+    "tool": "design_scorer.py",
+    "version": "2.0.0"
+  },
+  "grades": {
+    "design_grade": "A",
+    "design_score": 93.09,
+    "ai_slop_grade": "A",
+    "ai_slop_score": 9.4,
+    "accessibility_grade": "A",
+    "accessibility_score": 9.3
+  },
+  "category_breakdown": {
+    "visual_hierarchy": {
+      "name": "Visual Hierarchy & Composition",
+      "weight": 0.1,
+      "raw_score": 9.4,
+      "weighted_contribution": 9.4,
+      "findings": []
+    },
+    "typography": {
+      "name": "Typography System",
+      "weight": 0.08,
+      "raw_score": 9.0,
+      "weighted_contribution": 7.2,
+      "findings": [
+        {
+          "description": "The configured generic sans-serif stack is deterministic offline but does not guarantee the exact Source Sans 3 face on every host.",
+          "priority": "cosmetic",
+          "fix": "Vendor a licensed Source Sans 3 WOFF2 asset if exact cross-host typography becomes a release requirement.",
+          "impact": 2
+        }
+      ]
+    },
+    "color_contrast": {
+      "name": "Color & Contrast",
+      "weight": 0.08,
+      "raw_score": 9.5,
+      "weighted_contribution": 7.6,
+      "findings": []
+    },
+    "spacing_layout": {
+      "name": "Spacing & Layout Grid",
+      "weight": 0.08,
+      "raw_score": 9.3,
+      "weighted_contribution": 7.44,
+      "findings": []
+    },
+    "interaction_states": {
+      "name": "Interaction States",
+      "weight": 0.1,
+      "raw_score": 9.1,
+      "weighted_contribution": 9.1,
+      "findings": []
+    },
+    "navigation_ia": {
+      "name": "Navigation & Information Architecture",
+      "weight": 0.08,
+      "raw_score": 9.2,
+      "weighted_contribution": 7.36,
+      "findings": []
+    },
+    "responsive": {
+      "name": "Responsive Design",
+      "weight": 0.08,
+      "raw_score": 9.2,
+      "weighted_contribution": 7.36,
+      "findings": [
+        {
+          "description": "Very wide native dataframes remain horizontally scrollable on narrow screens, which preserves data but can require deliberate exploration.",
+          "priority": "low",
+          "fix": "Add a mobile column preset if field usage shows that users regularly inspect dense tables on phones.",
+          "impact": 3
+        }
+      ]
+    },
+    "accessibility": {
+      "name": "Accessibility (WCAG)",
+      "weight": 0.12,
+      "raw_score": 9.3,
+      "weighted_contribution": 11.16,
+      "findings": [
+        {
+          "description": "Custom surfaces are semantic, text statuses do not rely on color, focus-visible rings are explicit, and native Streamlit controls retain labels; a release pipeline accessibility crawler is not yet configured.",
+          "priority": "low",
+          "fix": "Add automated axe-core coverage to deployment QA when browser automation becomes part of CI.",
+          "impact": 3
+        }
+      ]
+    },
+    "motion_animation": {
+      "name": "Motion & Animation",
+      "weight": 0.05,
+      "raw_score": 9.6,
+      "weighted_contribution": 4.8,
+      "findings": []
+    },
+    "content_microcopy": {
+      "name": "Content & Microcopy",
+      "weight": 0.05,
+      "raw_score": 9.4,
+      "weighted_contribution": 4.7,
+      "findings": []
+    },
+    "ai_slop": {
+      "name": "AI Slop Indicators",
+      "weight": 0.08,
+      "raw_score": 9.4,
+      "weighted_contribution": 7.52,
+      "findings": []
+    },
+    "performance_design": {
+      "name": "Performance as Design",
+      "weight": 0.05,
+      "raw_score": 9.5,
+      "weighted_contribution": 4.75,
+      "findings": []
+    }
+  },
+  "coherence": {
+    "raw_score": 9.4,
+    "weighted_contribution": 4.7
+  },
+  "recommendations": [
+    {
+      "category": "Responsive Design",
+      "category_key": "responsive",
+      "description": "Very wide native dataframes remain horizontally scrollable on narrow screens, which preserves data but can require deliberate exploration.",
+      "priority": "low",
+      "fix": "Add a mobile column preset if field usage shows that users regularly inspect dense tables on phones.",
+      "impact_score": 3
+    },
+    {
+      "category": "Accessibility (WCAG)",
+      "category_key": "accessibility",
+      "description": "Custom surfaces are semantic, text statuses do not rely on color, focus-visible rings are explicit, and native Streamlit controls retain labels; a release pipeline accessibility crawler is not yet configured.",
+      "priority": "low",
+      "fix": "Add automated axe-core coverage to deployment QA when browser automation becomes part of CI.",
+      "impact_score": 3
+    },
+    {
+      "category": "Typography System",
+      "category_key": "typography",
+      "description": "The configured generic sans-serif stack is deterministic offline but does not guarantee the exact Source Sans 3 face on every host.",
+      "priority": "cosmetic",
+      "fix": "Vendor a licensed Source Sans 3 WOFF2 asset if exact cross-host typography becomes a release requirement.",
+      "impact_score": 2
+    }
+  ],
+  "summary": {
+    "total_findings": 3,
+    "by_priority": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 2,
+      "cosmetic": 1
+    },
+    "top_3_issues": [
+      {
+        "category": "Responsive Design",
+        "category_key": "responsive",
+        "description": "Very wide native dataframes remain horizontally scrollable on narrow screens, which preserves data but can require deliberate exploration.",
+        "priority": "low",
+        "fix": "Add a mobile column preset if field usage shows that users regularly inspect dense tables on phones.",
+        "impact_score": 3
+      },
+      {
+        "category": "Accessibility (WCAG)",
+        "category_key": "accessibility",
+        "description": "Custom surfaces are semantic, text statuses do not rely on color, focus-visible rings are explicit, and native Streamlit controls retain labels; a release pipeline accessibility crawler is not yet configured.",
+        "priority": "low",
+        "fix": "Add automated axe-core coverage to deployment QA when browser automation becomes part of CI.",
+        "impact_score": 3
+      },
+      {
+        "category": "Typography System",
+        "category_key": "typography",
+        "description": "The configured generic sans-serif stack is deterministic offline but does not guarantee the exact Source Sans 3 face on every host.",
+        "priority": "cosmetic",
+        "fix": "Vendor a licensed Source Sans 3 WOFF2 asset if exact cross-host typography becomes a release requirement.",
+        "impact_score": 2
+      }
+    ]
+  },
+  "trend": {
+    "visual_hierarchy": {
+      "name": "Visual Hierarchy & Composition",
+      "current": 9.4,
+      "baseline": 6.5,
+      "delta": 2.9,
+      "direction": "improved"
+    },
+    "typography": {
+      "name": "Typography System",
+      "current": 9.0,
+      "baseline": 6.5,
+      "delta": 2.5,
+      "direction": "improved"
+    },
+    "color_contrast": {
+      "name": "Color & Contrast",
+      "current": 9.5,
+      "baseline": 9.0,
+      "delta": 0.5,
+      "direction": "improved"
+    },
+    "spacing_layout": {
+      "name": "Spacing & Layout Grid",
+      "current": 9.3,
+      "baseline": 6.0,
+      "delta": 3.3,
+      "direction": "improved"
+    },
+    "interaction_states": {
+      "name": "Interaction States",
+      "current": 9.1,
+      "baseline": 7.0,
+      "delta": 2.1,
+      "direction": "improved"
+    },
+    "navigation_ia": {
+      "name": "Navigation & Information Architecture",
+      "current": 9.2,
+      "baseline": 8.0,
+      "delta": 1.2,
+      "direction": "improved"
+    },
+    "responsive": {
+      "name": "Responsive Design",
+      "current": 9.2,
+      "baseline": 6.0,
+      "delta": 3.2,
+      "direction": "improved"
+    },
+    "accessibility": {
+      "name": "Accessibility (WCAG)",
+      "current": 9.3,
+      "baseline": 8.5,
+      "delta": 0.8,
+      "direction": "improved"
+    },
+    "motion_animation": {
+      "name": "Motion & Animation",
+      "current": 9.6,
+      "baseline": 8.0,
+      "delta": 1.6,
+      "direction": "improved"
+    },
+    "content_microcopy": {
+      "name": "Content & Microcopy",
+      "current": 9.4,
+      "baseline": 9.0,
+      "delta": 0.4,
+      "direction": "improved"
+    },
+    "ai_slop": {
+      "name": "AI Slop Indicators",
+      "current": 9.4,
+      "baseline": 7.0,
+      "delta": 2.4,
+      "direction": "improved"
+    },
+    "performance_design": {
+      "name": "Performance as Design",
+      "current": 9.5,
+      "baseline": 9.0,
+      "delta": 0.5,
+      "direction": "improved"
+    },
+    "_overall": {
+      "current_total": 93.09,
+      "baseline_total": 73.95,
+      "delta": 19.14,
+      "direction": "improved"
+    }
+  }
+}

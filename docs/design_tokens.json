@@ -1,0 +1,93 @@
+{
+  "colors": {
+    "primary": "#005eb8",
+    "primary_dark": "#004b76",
+    "ink": "#212b32",
+    "muted": "#4c6272",
+    "canvas": "#f7f9fa",
+    "surface": "#ffffff",
+    "surface_soft": "#f2f4f5",
+    "surface_interactive": "#f4f9fd",
+    "border": "#d8dde0",
+    "border_soft": "#e8edee",
+    "focus": "#ffdd00",
+    "selected_border": "rgba(0, 94, 184, 0.26)",
+    "header_border": "rgba(216, 221, 224, 0.7)",
+    "canvas_glow": "rgba(234, 245, 252, 0.38)",
+    "canvas_transparent": "rgba(247, 249, 250, 0)",
+    "header_glass": "rgba(247, 249, 250, 0.9)",
+    "header_glass_mobile": "rgba(247, 249, 250, 0.96)",
+    "sidebar_glass": "rgba(242, 244, 245, 0.97)",
+    "surface_glass": "rgba(255, 255, 255, 0.72)",
+    "shadow_faint": "rgba(33, 43, 50, 0.035)",
+    "shadow_table": "rgba(33, 43, 50, 0.04)",
+    "shadow_default": "rgba(33, 43, 50, 0.05)",
+    "shadow_action": "rgba(33, 43, 50, 0.08)",
+    "shadow_selected": "rgba(33, 43, 50, 0.09)"
+  },
+  "spacing": {
+    "micro": "0.15rem",
+    "micro_control": "0.18rem",
+    "xs": "0.25rem",
+    "xs_control": "0.45rem",
+    "sm": "0.5rem",
+    "sm_control": "0.55rem",
+    "sm_nav": "0.58rem",
+    "md_nav": "0.65rem",
+    "md": "0.7rem",
+    "md_card": "0.72rem",
+    "lg": "0.75rem",
+    "lg_control": "0.78rem",
+    "xl_control": "0.8rem",
+    "section": "1rem",
+    "section_compact": "1.25rem",
+    "section_flow": "1.35rem",
+    "section_large": "1.5rem",
+    "page_mobile_top": "3.25rem",
+    "page_mobile_bottom": "3.5rem",
+    "page_top": "3.75rem",
+    "page_bottom": "5rem",
+    "rule": "1px",
+    "focus_offset": "2px",
+    "focus_ring": "3px",
+    "sidebar_padding": "8px",
+    "page_padding": "24px"
+  },
+  "font_sizes": {
+    "caption_xs": "0.65rem",
+    "caption": "0.7rem",
+    "label": "0.72rem",
+    "body_sm": "0.8rem",
+    "body_compact": "0.84rem",
+    "body": "0.86rem"
+  },
+  "font_families": {
+    "technical": "\"IBM Plex Mono\", monospace"
+  },
+  "font_weights": {
+    "semibold": "600",
+    "bold": "700"
+  },
+  "line_heights": {
+    "tight": "1.25",
+    "normal": "1.45"
+  },
+  "border_radii": {
+    "micro": "2px",
+    "small": "4px",
+    "medium": "6px"
+  },
+  "shadows": {
+    "button": "0 1px 1px rgba(33, 43, 50, 0.08)",
+    "selected": "0 1px 2px rgba(33, 43, 50, 0.09)",
+    "table": "0 1px 2px rgba(33, 43, 50, 0.04)"
+  },
+  "breakpoints": {
+    "tablet": "991px",
+    "mobile": "767px"
+  },
+  "transitions": {
+    "fast": "120ms",
+    "reduced": "0.01ms"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "pairs": [
+    {
+      "label": "Primary body text",
+      "foreground": "#212B32",
+      "background": "#FFFFFF",
+      "size": "normal"
+    },
+    {
+      "label": "Secondary text on canvas",
+      "foreground": "#4C6272",
+      "background": "#F7F9FA",
+      "size": "normal"
+    },
+    {
+      "label": "Primary action",
+      "foreground": "#FFFFFF",
+      "background": "#005EB8",
+      "size": "normal"
+    },
+    {
+      "label": "Information status",
+      "foreground": "#004B76",
+      "background": "#EAF5FC",
+      "size": "normal"
+    },
+    {
+      "label": "On-target status",
+      "foreground": "#006747",
+      "background": "#EAF6EE",
+      "size": "normal"
+    },
+    {
+      "label": "Watch status",
+      "foreground": "#7A5B00",
+      "background": "#FFF7E0",
+      "size": "normal"
+    },
+    {
+      "label": "Priority status",
+      "foreground": "#A2191F",
+      "background": "#FFF1F1",
+      "size": "normal"
+    },
+    {
+      "label": "Focus indicator against ink",
+      "foreground": "#FFDD00",
+      "background": "#212B32",
+      "size": "ui"
+    }
+  ]
+}
