@@ -27,68 +27,87 @@ def _sync_hospital_search(hospitals: pd.DataFrame) -> None:
     st.session_state.selected_hospital_name = match.iloc[0] if not match.empty else None
 
 
-def render_global_filters(hospitals: pd.DataFrame) -> FilterState:
-    """Render sidebar controls shared by every page."""
-    st.markdown("**Filter portofolio**")
-    st.multiselect(
-        "Provinsi",
-        sorted(hospitals["provinsi"].dropna().unique()),
-        key="filter_provinsi",
-        placeholder="Semua provinsi",
-    )
-    st.multiselect(
-        "Kelas rumah sakit",
-        sorted(hospitals["kelas_rumah_sakit"].dropna().unique()),
-        key="filter_kelas",
-        placeholder="Semua kelas",
-    )
-    st.multiselect(
-        "Kepemilikan",
-        sorted(hospitals["kepemilikan"].dropna().unique()),
-        key="filter_kepemilikan",
-        placeholder="Semua kepemilikan",
-    )
-    st.multiselect(
-        "Status implementasi RME",
-        sorted(hospitals["status_implementasi_rme"].dropna().unique()),
-        key="filter_rme",
-        placeholder="Semua status",
-    )
-    st.multiselect(
-        "Status koneksi SatuSehat",
-        sorted(hospitals["status_terhubung_satusehat"].dropna().unique()),
-        key="filter_satusehat",
-        placeholder="Semua status",
-    )
-    st.toggle(
-        "Hanya rumah sakit prioritas",
-        key="priority_only",
-        help="Menampilkan Tier 1 Inefisiensi Ganda dan Tier 2 Early Warning.",
-    )
-
-    st.markdown("**Pilih rumah sakit**")
+def render_global_filter_toolbar(hospitals: pd.DataFrame) -> FilterState:
+    """Render shared portfolio controls in a compact main-area command bar."""
     ordered = hospitals.sort_values(["nama_rumah_sakit", "id_rumah_sakit"])
     name_by_id = ordered.set_index("id_rumah_sakit")["nama_rumah_sakit"].to_dict()
-    st.selectbox(
-        "Cari nama atau ID rumah sakit",
-        [None, *ordered["id_rumah_sakit"].tolist()],
-        key="hospital_search",
-        format_func=lambda hospital_id: (
-            "Belum ada pilihan"
-            if hospital_id is None
-            else f"{hospital_id} · {name_by_id[hospital_id]}"
-        ),
-        on_change=_sync_hospital_search,
-        args=(hospitals,),
-    )
 
-    st.button(
-        "Reset semua filter",
-        icon=":material/restart_alt:",
-        type="tertiary",
-        on_click=reset_dashboard_state,
-        width="stretch",
-    )
+    filter_count = active_filter_count(get_filter_state())
+    filter_label = "Filter portofolio" if not filter_count else f"Filter · {filter_count} aktif"
+
+    with st.container(key="global-filter-toolbar", border=True):
+        with st.container(
+            key="global-filter-actions",
+            horizontal=True,
+            vertical_alignment="bottom",
+            gap="xsmall",
+        ):
+            st.selectbox(
+                "Cari rumah sakit",
+                ordered["id_rumah_sakit"].tolist(),
+                index=None,
+                key="hospital_search",
+                placeholder="Cari nama atau ID rumah sakit",
+                format_func=lambda hospital_id: f"{hospital_id} · {name_by_id[hospital_id]}",
+                on_change=_sync_hospital_search,
+                args=(hospitals,),
+                width=520,
+            )
+
+            with st.popover(
+                filter_label,
+                icon=":material/filter_list:",
+                type="primary" if filter_count else "secondary",
+                key="global-filter-popover",
+            ):
+                st.caption("PERSEMPIT PORTOFOLIO")
+                st.multiselect(
+                    "Provinsi",
+                    sorted(hospitals["provinsi"].dropna().unique()),
+                    key="filter_provinsi",
+                    placeholder="Semua provinsi",
+                )
+                st.pills(
+                    "Kelas rumah sakit",
+                    sorted(hospitals["kelas_rumah_sakit"].dropna().unique()),
+                    selection_mode="multi",
+                    key="filter_kelas",
+                    width="stretch",
+                )
+                st.multiselect(
+                    "Kepemilikan",
+                    sorted(hospitals["kepemilikan"].dropna().unique()),
+                    key="filter_kepemilikan",
+                    placeholder="Semua kepemilikan",
+                )
+                st.pills(
+                    "Status implementasi RME",
+                    sorted(hospitals["status_implementasi_rme"].dropna().unique()),
+                    selection_mode="multi",
+                    key="filter_rme",
+                    width="stretch",
+                )
+                st.pills(
+                    "Status koneksi SatuSehat",
+                    sorted(hospitals["status_terhubung_satusehat"].dropna().unique()),
+                    selection_mode="multi",
+                    key="filter_satusehat",
+                    width="stretch",
+                )
+
+            st.toggle(
+                "Hanya prioritas",
+                key="priority_only",
+                help="Menampilkan Tier 1 Inefisiensi Ganda dan Tier 2 Early Warning.",
+            )
+            st.button(
+                "Reset",
+                key="reset-global-filters",
+                icon=":material/restart_alt:",
+                type="tertiary",
+                on_click=reset_dashboard_state,
+            )
+
     return get_filter_state()
 
 
@@ -117,3 +136,9 @@ def active_filter_summary(filters: FilterState) -> str:
     if filters["priority_only"]:
         parts.append("Prioritas: Tier 1–2")
     return " | ".join(parts) if parts else "Seluruh portofolio rumah sakit"
+
+
+def active_filter_count(filters: FilterState) -> int:
+    """Count active filter groups for the toolbar status affordance."""
+    dimension_count = sum(bool(filters[column]) for column in FILTER_LABELS)
+    return dimension_count + int(filters["priority_only"])

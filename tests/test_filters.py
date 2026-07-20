@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from dashboard.data_loader import ArtifactBundle
-from dashboard.filters import active_filter_summary, filter_hospitals
+from dashboard.filters import active_filter_count, active_filter_summary, filter_hospitals
 from dashboard.state import FilterState
 
 
@@ -55,6 +55,17 @@ def test_priority_only_uses_tier_one_and_two(bundle: ArtifactBundle) -> None:
 
 
 def test_filter_summary_truncates_long_values() -> None:
-    summary = active_filter_summary(_filters(provinsi=["A", "B", "C", "D"], priority_only=True))
+    filters = _filters(provinsi=["A", "B", "C", "D"], priority_only=True)
+    summary = active_filter_summary(filters)
     assert "Provinsi: A, B, C +1" in summary
     assert "Prioritas: Tier 1–2" in summary
+    assert active_filter_count(filters) == 2
+
+
+def test_filter_count_uses_active_groups_not_selected_value_count() -> None:
+    filters = _filters(
+        provinsi=["DKI Jakarta", "Jawa Barat"],
+        kelas_rumah_sakit=["A", "B"],
+        status_implementasi_rme=["Ya"],
+    )
+    assert active_filter_count(filters) == 3
