@@ -21,12 +21,19 @@ blueTextColor = "#004B76"
 violetColor = "#6929C4"
 grayColor = "#4C6272"
 chartCategoricalColors = ["#005EB8", "#007D79", "#6929C4", "#1192E8", "#9F1853", "#198038", "#002D9C", "#B28600"]
+chartSequentialColors = ["#EAF5FC", "#D6EBF8", "#B8DCF2", "#91C7E8", "#67AFDC", "#3D94CF", "#1678C1", "#005EB8", "#004B92", "#00386D"]
 dataframeBorderColor = "#D8DDE0"
 dataframeHeaderBackgroundColor = "#F2F4F5"
-font = "sans-serif"
+font = "Source Sans 3:https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap"
+headingFont = "Source Sans 3:https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@600;700&display=swap"
+headingFontSizes = ["2.35rem", "1.65rem", "1.25rem", "1.1rem", "1rem", "0.875rem"]
+headingFontWeights = [700, 700, 700, 600, 600, 600]
+codeFont = "IBM Plex Mono:https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap"
 baseFontSize = 15
+baseFontWeight = 400
+linkUnderline = false
 baseRadius = "6px"
-buttonRadius = "4px"
+buttonRadius = "6px"
 showWidgetBorder = true
 showSidebarBorder = true
 
@@ -39,4 +46,3 @@ primaryColor = "#005EB8"
 
 [browser]
 gatherUsageStats = false
-
