@@ -22,7 +22,6 @@ from dashboard.components.charts_hospital import (
     build_peer_benchmark_profile,
     build_priority_decomposition,
 )
-from dashboard.components.charts_methodology import build_missingness_chart
 from dashboard.components.charts_operational import (
     build_adjusted_coefficients,
     build_maturity_outcome_medians,
@@ -63,18 +62,17 @@ def _builders(bundle: ArtifactBundle) -> list[Callable[[], go.Figure]]:
         lambda: build_maturity_referral_scatter(hospitals),
         lambda: build_maturity_outcome_medians(bundle.outcome_associations),
         lambda: build_operational_heatmap(hospitals),
-        lambda: build_missingness_chart(bundle.data_quality),
     ]
 
 
-@pytest.mark.parametrize("builder_index", range(17))
+@pytest.mark.parametrize("builder_index", range(16))
 def test_chart_builders_return_nonempty_figures(bundle: ArtifactBundle, builder_index: int) -> None:
     figure = _builders(bundle)[builder_index]()
     assert isinstance(figure, go.Figure)
     assert len(figure.data) > 0
 
 
-@pytest.mark.parametrize("builder_index", range(17))
+@pytest.mark.parametrize("builder_index", range(16))
 def test_chart_builders_share_product_visual_language(
     bundle: ArtifactBundle, builder_index: int
 ) -> None:

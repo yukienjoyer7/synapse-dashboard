@@ -58,12 +58,6 @@ def run_dashboard() -> None:
             icon=":material/domain:",
             url_path="rumah-sakit",
         ),
-        st.Page(
-            PAGE_DIR / "methodology.py",
-            title="Metodologi & kualitas data",
-            icon=":material/fact_check:",
-            url_path="metodologi",
-        ),
     ]
 
     navigation = st.navigation(pages, position="sidebar")
