@@ -1,11 +1,11 @@
 [theme]
 base = "light"
 primaryColor = "#1F4F3F"
-backgroundColor = "#F7F9FA"
-secondaryBackgroundColor = "#FFFFFF"
-textColor = "#212B32"
+backgroundColor = "#FDF6E4"
+secondaryBackgroundColor = "#FBEFD3"
+textColor = "#33413C"
 linkColor = "#1F4F3F"
-borderColor = "#D8DDE0"
+borderColor = "#E8DFC0"
 redColor = "#A2191F"
 redBackgroundColor = "#FFF1F1"
 redTextColor = "#A2191F"
@@ -16,14 +16,14 @@ greenColor = "#006747"
 greenBackgroundColor = "#EAF6EE"
 greenTextColor = "#006747"
 blueColor = "#1F4F3F"
-blueBackgroundColor = "#EFF4F3"
+blueBackgroundColor = "#F1E9D0"
 blueTextColor = "#2A6354"
 violetColor = "#6929C4"
-grayColor = "#4C6272"
+grayColor = "#4B5D56"
 chartCategoricalColors = ["#1F4F3F", "#3C7863", "#6929C4", "#1192E8", "#9F1853", "#198038", "#002D9C", "#B28600"]
-chartSequentialColors = ["#EFF4F3", "#C0D3CD", "#90B2A7", "#619281", "#3A7662", "#336E5C", "#2C6656", "#275E4F", "#235647", "#1F4F3F"]
-dataframeBorderColor = "#D8DDE0"
-dataframeHeaderBackgroundColor = "#F2F4F5"
+chartSequentialColors = ["#F1E9D0", "#C1CBB3", "#91AD96", "#618F79", "#3A7662", "#336E5C", "#2C6656", "#275E4F", "#235647", "#1F4F3F"]
+dataframeBorderColor = "#E8DFC0"
+dataframeHeaderBackgroundColor = "#F1E9D0"
 # Generic families keep the interface deterministic when the dashboard runs offline.
 font = "sans-serif"
 headingFont = "sans-serif"
@@ -39,10 +39,10 @@ showWidgetBorder = true
 showSidebarBorder = true
 
 [theme.sidebar]
-backgroundColor = "#F2F4F5"
-secondaryBackgroundColor = "#FFFFFF"
-textColor = "#212B32"
-borderColor = "#D8DDE0"
+backgroundColor = "#F1E9D0"
+secondaryBackgroundColor = "#FBEFD3"
+textColor = "#33413C"
+borderColor = "#E8DFC0"
 primaryColor = "#1F4F3F"
 
 [browser]

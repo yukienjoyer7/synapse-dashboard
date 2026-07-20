@@ -3,15 +3,15 @@
   --ho-blue: #1f4f3f;
   --ho-blue-dark: #2a6354;
   --ho-lime: #9dc03f;
-  --ho-ink: #212b32;
-  --ho-muted: #4c6272;
-  --ho-canvas: #f7f9fa;
-  --ho-surface: #ffffff;
-  --ho-surface-soft: #f2f4f5;
-  --ho-border: #d8dde0;
-  --ho-border-soft: #e8edee;
+  --ho-ink: #33413c;
+  --ho-muted: #4b5d56;
+  --ho-canvas: #fdf6e4;
+  --ho-surface: #fbefd3;
+  --ho-surface-soft: #f1e9d0;
+  --ho-border: #e8dfc0;
+  --ho-border-soft: #f2e8ca;
   --ho-focus: #ffdd00;
-  --ho-shadow: 0 1px 2px rgba(33, 43, 50, 0.05), 0 8px 24px rgba(33, 43, 50, 0.035);
+  --ho-shadow: 0 1px 2px rgba(51, 65, 60, 0.05), 0 8px 24px rgba(51, 65, 60, 0.035);
   --ho-radius: 6px;
 }
 
@@ -25,13 +25,13 @@ body,
 
 [data-testid="stAppViewContainer"] {
   background:
-    linear-gradient(180deg, rgba(239, 244, 243, 0.38) 0, rgba(247, 249, 250, 0) 17rem),
+    linear-gradient(180deg, rgba(239, 244, 243, 0.38) 0, rgba(253, 246, 228, 0) 17rem),
     var(--ho-canvas);
 }
 
 [data-testid="stHeader"] {
-  background: rgba(247, 249, 250, 0.9);
-  border-bottom: 1px solid rgba(216, 221, 224, 0.7);
+  background: rgba(253, 246, 228, 0.9);
+  border-bottom: 1px solid rgba(232, 223, 192, 0.7);
   backdrop-filter: blur(12px);
 }
 
@@ -51,7 +51,7 @@ body,
 /* Sidebar and navigation */
 [data-testid="stSidebar"] {
   min-width: 17.5rem;
-  background: rgba(242, 244, 245, 0.97);
+  background: rgba(241, 233, 208, 0.97);
 }
 
 [data-testid="stSidebarContent"] {
@@ -87,7 +87,7 @@ body,
   color: var(--ho-blue-dark);
   border-color: rgba(31, 79, 63, 0.26);
   background: var(--ho-surface);
-  box-shadow: inset 3px 0 0 var(--ho-blue), 0 1px 2px rgba(33, 43, 50, 0.05);
+  box-shadow: inset 3px 0 0 var(--ho-blue), 0 1px 2px rgba(51, 65, 60, 0.05);
 }
 
 [data-testid="stSidebar"] [data-testid="stCaptionContainer"] {
@@ -111,7 +111,7 @@ body,
   background:
     linear-gradient(110deg, rgba(239, 244, 243, 0.72), rgba(255, 255, 255, 0.94) 42%),
     var(--ho-surface);
-  box-shadow: 0 10px 32px rgba(33, 43, 50, 0.08), 0 1px 2px rgba(33, 43, 50, 0.08);
+  box-shadow: 0 10px 32px rgba(51, 65, 60, 0.08), 0 1px 2px rgba(51, 65, 60, 0.08);
   backdrop-filter: blur(14px);
 }
 
@@ -152,7 +152,7 @@ body,
   min-height: 2.5rem;
   border-color: var(--ho-border);
   background: rgba(255, 255, 255, 0.9);
-  box-shadow: inset 0 1px 1px rgba(33, 43, 50, 0.025);
+  box-shadow: inset 0 1px 1px rgba(51, 65, 60, 0.025);
 }
 
 .st-key-global-filter-actions [data-baseweb="select"] > div:hover {
@@ -197,7 +197,7 @@ body,
   border: 1px solid var(--ho-border);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.98);
-  box-shadow: 0 20px 54px rgba(33, 43, 50, 0.16), 0 2px 5px rgba(33, 43, 50, 0.08);
+  box-shadow: 0 20px 54px rgba(51, 65, 60, 0.16), 0 2px 5px rgba(51, 65, 60, 0.08);
   backdrop-filter: blur(16px);
 }
 
@@ -236,7 +236,7 @@ body,
 .st-key-filter_satusehat button[aria-pressed="true"] {
   color: var(--ho-blue-dark);
   border-color: rgba(31, 79, 63, 0.38);
-  background: #eff4f3;
+  background: #f1e9d0;
 }
 
 /* Interactive controls */
@@ -264,7 +264,7 @@ textarea:focus-visible,
   min-height: 2.5rem;
   border-color: var(--ho-blue-dark);
   background: var(--ho-blue);
-  box-shadow: 0 1px 1px rgba(33, 43, 50, 0.08);
+  box-shadow: 0 1px 1px rgba(51, 65, 60, 0.08);
   font-weight: 700;
 }
 
@@ -284,7 +284,7 @@ textarea:focus-visible,
 [data-testid="stBaseButton-secondary"]:hover {
   color: var(--ho-blue-dark);
   border-color: var(--ho-blue);
-  background: #eff4f3;
+  background: #f1e9d0;
 }
 
 [data-testid="stDownloadButton"] button::before {
@@ -320,7 +320,7 @@ textarea:focus-visible,
 [data-baseweb="tab"][aria-selected="true"] {
   color: var(--ho-blue-dark);
   background: var(--ho-surface);
-  box-shadow: 0 1px 2px rgba(33, 43, 50, 0.09);
+  box-shadow: 0 1px 2px rgba(51, 65, 60, 0.09);
 }
 
 [data-baseweb="tab-highlight"],
@@ -351,7 +351,7 @@ textarea:focus-visible,
   border: 1px solid var(--ho-border);
   border-radius: var(--ho-radius);
   background: var(--ho-surface);
-  box-shadow: 0 1px 2px rgba(33, 43, 50, 0.04);
+  box-shadow: 0 1px 2px rgba(51, 65, 60, 0.04);
 }
 
 [data-testid="stDataFrame"] [role="columnheader"] {
@@ -414,7 +414,7 @@ textarea:focus-visible,
 
 @media (max-width: 767px) {
   [data-testid="stHeader"] {
-    background: rgba(247, 249, 250, 0.96);
+    background: rgba(253, 246, 228, 0.96);
   }
 
   [data-testid="stMainBlockContainer"] {

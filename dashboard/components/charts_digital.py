@@ -90,7 +90,7 @@ def build_actual_expected(dataframe: pd.DataFrame, selected_hospital_id: str | N
         line={"color": COLORS["secondary"], "dash": "dash"},
     )
     figure.update_traces(
-        marker={"opacity": 0.75, "line": {"color": "white", "width": 0.8}},
+        marker={"opacity": 0.75, "line": {"color": "#FBEFD3", "width": 0.8}},
         hovertemplate=(
             "<b>%{customdata[1]}</b><br>ID: %{customdata[0]}<br>"
             "Aktual: %{y:.1f}<br>Ekspektasi: %{x:.1f}<br>"

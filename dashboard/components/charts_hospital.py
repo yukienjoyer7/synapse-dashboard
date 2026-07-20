@@ -69,7 +69,7 @@ def build_peer_benchmark_profile(
             marker={
                 "size": 13,
                 "color": COLORS["primary"],
-                "line": {"color": "white", "width": 1.5},
+                "line": {"color": "#FBEFD3", "width": 1.5},
             },
             customdata=benchmark[
                 ["actual", "peer_q1", "peer_median", "peer_q3", "national_median", "unit"]

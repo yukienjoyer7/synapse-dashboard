@@ -70,7 +70,7 @@ def build_maturity_referral_scatter(dataframe: pd.DataFrame) -> go.Figure:
         },
     )
     figure.update_traces(
-        marker={"size": 8, "opacity": 0.72, "line": {"color": "white", "width": 0.6}},
+        marker={"size": 8, "opacity": 0.72, "line": {"color": "#FBEFD3", "width": 0.6}},
         hovertemplate=(
             "<b>%{customdata[1]}</b><br>ID: %{customdata[0]} · "
             "Kelas %{customdata[2]}<br>Kematangan: %{x:.1f}<br>"
@@ -154,7 +154,7 @@ def build_operational_heatmap(dataframe: pd.DataFrame) -> go.Figure:
             zmin=0,
             zmax=1,
             colorscale=[
-                [0.0, "#EFF4F3"],
+                [0.0, "#F1E9D0"],
                 [0.5, "#457E6A"],
                 [0.75, COLORS["watch"]],
                 [1.0, COLORS["danger"]],

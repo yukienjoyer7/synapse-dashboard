@@ -77,9 +77,9 @@ def test_chart_builders_share_product_visual_language(
     bundle: ArtifactBundle, builder_index: int
 ) -> None:
     layout = _builders(bundle)[builder_index]().layout
-    assert layout.paper_bgcolor == "#FFFFFF"
-    assert layout.plot_bgcolor == "#FFFFFF"
+    assert layout.paper_bgcolor == "#FBEFD3"
+    assert layout.plot_bgcolor == "#FBEFD3"
     assert layout.font.family.startswith("Source Sans 3")
     assert layout.separators == ",."
-    assert layout.hoverlabel.bordercolor == "#D8DDE0"
-    assert layout.yaxis.gridcolor == "#E8EDEE"
+    assert layout.hoverlabel.bordercolor == "#E8DFC0"
+    assert layout.yaxis.gridcolor == "#E8DFC0"

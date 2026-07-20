@@ -13,7 +13,7 @@ COMPONENT_HTML = """
 COMPONENT_CSS = """
 :host {
   display: block;
-  color: var(--st-text-color, #212b32);
+  color: var(--st-text-color, #33413c);
   font-family: var(--st-font, "Source Sans 3", Arial, sans-serif);
 }
 
@@ -23,7 +23,7 @@ COMPONENT_CSS = """
 .page-hero {
   position: relative;
   padding: 0.25rem 0 1.35rem;
-  border-bottom: 1px solid var(--st-border-color-light, #e8edee);
+  border-bottom: 1px solid var(--st-border-color-light, #f2e8ca);
 }
 
 .page-hero::before {
@@ -51,11 +51,11 @@ COMPONENT_CSS = """
   position: relative;
   padding: 1rem 1.05rem;
   overflow: hidden;
-  border: 1px solid var(--st-border-color, #d8dde0);
+  border: 1px solid var(--st-border-color, #e8dfc0);
   border-radius: var(--st-base-radius, 6px);
   background:
-    linear-gradient(100deg, var(--st-blue-background-color, #eff4f3), transparent 52%),
-    var(--st-secondary-background-color, #fff);
+    linear-gradient(100deg, var(--st-blue-background-color, #f1e9d0), transparent 52%),
+    var(--st-secondary-background-color, #fbefd3);
 }
 
 .entity-header::after {
@@ -80,7 +80,7 @@ COMPONENT_CSS = """
 
 .entity-title {
   margin: 0;
-  color: var(--st-heading-color, #212b32);
+  color: var(--st-heading-color, #33413c);
   font-family: var(--st-heading-font, var(--st-font));
   font-size: clamp(1.2rem, 2vw, 1.5rem);
   font-weight: 700;
@@ -109,10 +109,10 @@ COMPONENT_CSS = """
   align-items: center;
   min-height: 1.45rem;
   padding: 0.2rem 0.48rem;
-  color: var(--st-gray-text-color, #4c6272);
-  border: 1px solid var(--st-border-color, #d8dde0);
+  color: var(--st-gray-text-color, #4b5d56);
+  border: 1px solid var(--st-border-color, #e8dfc0);
   border-radius: 999px;
-  background: var(--st-secondary-background-color, #fff);
+  background: var(--st-secondary-background-color, #fbefd3);
   font-size: 0.66rem;
   font-weight: 700;
   line-height: 1.25;
@@ -121,7 +121,7 @@ COMPONENT_CSS = """
 .entity-pill[data-tone="info"] {
   color: var(--st-blue-text-color, #2a6354);
   border-color: var(--st-blue-color, #1f4f3f);
-  background: var(--st-blue-background-color, #eff4f3);
+  background: var(--st-blue-background-color, #f1e9d0);
 }
 
 .entity-pill[data-tone="risk"] {
@@ -132,7 +132,7 @@ COMPONENT_CSS = """
 
 .entity-meta {
   margin: 0.72rem 0 0;
-  color: var(--st-gray-text-color, #4c6272);
+  color: var(--st-gray-text-color, #4b5d56);
   font-size: 0.76rem;
   line-height: 1.45;
 }
@@ -144,14 +144,14 @@ COMPONENT_CSS = """
   gap: 1rem;
   min-height: 2rem;
   padding-top: 0.38rem;
-  color: var(--st-gray-text-color, #4c6272);
-  border-top: 1px solid var(--st-border-color-light, #e8edee);
+  color: var(--st-gray-text-color, #4b5d56);
+  border-top: 1px solid var(--st-border-color-light, #f2e8ca);
   font-size: 0.7rem;
   line-height: 1.4;
 }
 
 .table-range {
-  color: var(--st-text-color, #212b32);
+  color: var(--st-text-color, #33413c);
   font-family: var(--st-code-font, monospace);
   font-weight: 600;
 }
@@ -179,15 +179,15 @@ COMPONENT_CSS = """
   display: inline-flex;
   align-items: center;
   width: fit-content;
-  border: 1px solid var(--st-border-color, #d8dde0);
+  border: 1px solid var(--st-border-color, #e8dfc0);
   border-radius: 999px;
   white-space: nowrap;
 }
 
 .version-chip {
   padding: 0.3rem 0.62rem;
-  color: var(--st-gray-text-color, #4c6272);
-  background: var(--st-secondary-background-color, #fff);
+  color: var(--st-gray-text-color, #4b5d56);
+  background: var(--st-secondary-background-color, #fbefd3);
   font-family: var(--st-code-font, "IBM Plex Mono", monospace);
   font-size: 0.68rem;
 }
@@ -195,7 +195,7 @@ COMPONENT_CSS = """
 .hero-title {
   max-width: 54rem;
   margin: 0.72rem 0 0;
-  color: var(--st-heading-color, #212b32);
+  color: var(--st-heading-color, #33413c);
   font-family: var(--st-heading-font, var(--st-font));
   font-size: clamp(1.8rem, 3.1vw, 2.35rem);
   font-weight: 700;
@@ -206,7 +206,7 @@ COMPONENT_CSS = """
 .hero-question {
   max-width: 62rem;
   margin: 0.6rem 0 0;
-  color: var(--st-text-color, #212b32);
+  color: var(--st-text-color, #33413c);
   font-size: 1.02rem;
   font-weight: 600;
   line-height: 1.45;
@@ -214,7 +214,7 @@ COMPONENT_CSS = """
 
 .hero-meta {
   margin: 0.62rem 0 0;
-  color: var(--st-gray-text-color, #4c6272);
+  color: var(--st-gray-text-color, #4b5d56);
   font-size: 0.8rem;
   line-height: 1.45;
 }
@@ -224,7 +224,7 @@ COMPONENT_CSS = """
   border: 1px solid var(--st-blue-color, #1f4f3f);
   border-left-width: 3px;
   border-radius: var(--st-base-radius, 6px);
-  background: var(--st-blue-background-color, #eff4f3);
+  background: var(--st-blue-background-color, #f1e9d0);
 }
 
 .context-copy { min-width: 0; }
@@ -237,7 +237,7 @@ COMPONENT_CSS = """
 .context-summary {
   overflow: hidden;
   margin: 0;
-  color: var(--st-text-color, #212b32);
+  color: var(--st-text-color, #33413c);
   font-size: 0.86rem;
   font-weight: 600;
   line-height: 1.35;
@@ -250,7 +250,7 @@ COMPONENT_CSS = """
   padding: 0.34rem 0.66rem;
   color: var(--st-blue-text-color, #2a6354);
   border-color: var(--st-blue-color, #1f4f3f);
-  background: var(--st-background-color, #f7f9fa);
+  background: var(--st-background-color, #fdf6e4);
   font-size: 0.76rem;
   font-weight: 700;
 }
@@ -267,9 +267,9 @@ COMPONENT_CSS = """
   min-height: 156px;
   padding: 1rem 1rem 0.9rem;
   overflow: hidden;
-  border: 1px solid var(--st-border-color, #d8dde0);
+  border: 1px solid var(--st-border-color, #e8dfc0);
   border-radius: var(--st-base-radius, 6px);
-  background: var(--st-secondary-background-color, #fff);
+  background: var(--st-secondary-background-color, #fbefd3);
 }
 
 .kpi-card:focus-visible {
@@ -284,18 +284,18 @@ COMPONENT_CSS = """
   left: 0;
   height: 3px;
   content: "";
-  background: var(--st-primary-color, #1f4f3f);
+  background: #fdd75c;
 }
 
 .kpi-card[data-tone="success"]::before { background: var(--st-green-color, #006747); }
 .kpi-card[data-tone="watch"]::before { background: var(--st-orange-color, #b28600); }
 .kpi-card[data-tone="risk"]::before { background: var(--st-red-color, #a2191f); }
-.kpi-card[data-tone="neutral"]::before { background: var(--st-gray-color, #4c6272); }
+.kpi-card[data-tone="neutral"]::before { background: var(--st-gray-color, #4b5d56); }
 
 .kpi-label {
   min-height: 2.25rem;
   margin: 0;
-  color: var(--st-gray-text-color, #4c6272);
+  color: var(--st-gray-text-color, #4b5d56);
   font-size: 0.73rem;
   font-weight: 700;
   letter-spacing: 0.045em;
@@ -305,7 +305,7 @@ COMPONENT_CSS = """
 
 .kpi-value {
   margin: 0.3rem 0 0;
-  color: var(--st-heading-color, #212b32);
+  color: var(--st-primary-color, #1f4f3f);
   font-family: var(--st-heading-font, var(--st-font));
   font-size: clamp(1.55rem, 2.35vw, 2.05rem);
   font-variant-numeric: tabular-nums;
@@ -324,7 +324,7 @@ COMPONENT_CSS = """
 .kpi-comparison {
   min-height: 1.15rem;
   margin: 0.42rem 0 0;
-  color: var(--st-gray-text-color, #4c6272);
+  color: var(--st-gray-text-color, #4b5d56);
   font-size: 0.76rem;
   line-height: 1.35;
 }
@@ -343,7 +343,7 @@ COMPONENT_CSS = """
   padding: 0.25rem 0.48rem;
   color: var(--st-blue-text-color, #2a6354);
   border-color: var(--st-blue-color, #1f4f3f);
-  background: var(--st-blue-background-color, #eff4f3);
+  background: var(--st-blue-background-color, #f1e9d0);
   font-size: 0.64rem;
   font-weight: 700;
   letter-spacing: 0.03em;
@@ -378,15 +378,15 @@ COMPONENT_CSS = """
 }
 
 .status-chip[data-tone="neutral"] {
-  color: var(--st-gray-text-color, #4c6272);
-  border-color: var(--st-gray-color, #4c6272);
-  background: var(--st-gray-background-color, #f2f4f5);
+  color: var(--st-gray-text-color, #4b5d56);
+  border-color: var(--st-gray-color, #4b5d56);
+  background: var(--st-gray-background-color, #f1e9d0);
 }
 
 .kpi-denominator {
   min-width: 0;
   margin: 0;
-  color: var(--st-gray-text-color, #4c6272);
+  color: var(--st-gray-text-color, #4b5d56);
   font-size: 0.68rem;
   line-height: 1.3;
   text-align: left;
@@ -398,7 +398,7 @@ COMPONENT_CSS = """
 .chart-title,
 .section-title {
   margin: 0;
-  color: var(--st-heading-color, #212b32);
+  color: var(--st-heading-color, #33413c);
   font-family: var(--st-heading-font, var(--st-font));
   font-size: 1rem;
   font-weight: 700;
@@ -410,7 +410,7 @@ COMPONENT_CSS = """
 .section-subtitle {
   max-width: 64rem;
   margin: 0.25rem 0 0;
-  color: var(--st-gray-text-color, #4c6272);
+  color: var(--st-gray-text-color, #4b5d56);
   font-size: 0.76rem;
   line-height: 1.45;
 }
@@ -428,8 +428,8 @@ COMPONENT_CSS = """
 .chart-insight {
   margin: 0;
   padding: 0.72rem 0 0.1rem;
-  color: var(--st-text-color, #212b32);
-  border-top: 1px solid var(--st-border-color-light, #e8edee);
+  color: var(--st-text-color, #33413c);
+  border-top: 1px solid var(--st-border-color-light, #f2e8ca);
   font-size: 0.78rem;
   font-weight: 500;
   line-height: 1.45;
@@ -449,7 +449,7 @@ COMPONENT_CSS = """
 .sidebar-brand {
   justify-content: flex-start;
   padding: 0.85rem 0 1rem;
-  border-bottom: 1px solid var(--st-border-color, #d8dde0);
+  border-bottom: 1px solid var(--st-border-color, #e8dfc0);
 }
 
 .brand-mark {
@@ -465,14 +465,14 @@ COMPONENT_CSS = """
   background: var(--st-primary-color, #1f4f3f);
 }
 
-.brand-mark span { border-radius: 1px; background: var(--st-background-color, #fff); }
+.brand-mark span { border-radius: 1px; background: var(--st-background-color, #fdf6e4); }
 .brand-mark span:nth-child(2),
 .brand-mark span:nth-child(3) { opacity: 0.64; }
 .brand-copy { min-width: 0; }
 
 .brand-name {
   margin: 0;
-  color: var(--st-heading-color, #212b32);
+  color: var(--st-heading-color, #33413c);
   font-family: var(--st-heading-font, var(--st-font));
   font-size: 0.94rem;
   font-weight: 700;
@@ -482,7 +482,7 @@ COMPONENT_CSS = """
 
 .brand-kicker {
   margin-top: 0.22rem;
-  color: var(--st-gray-text-color, #4c6272);
+  color: var(--st-gray-text-color, #4b5d56);
   font-size: 0.58rem;
   letter-spacing: 0.1em;
 }
@@ -490,7 +490,7 @@ COMPONENT_CSS = """
 .section-heading {
   align-items: flex-end;
   padding: 0.25rem 0 0.48rem;
-  border-bottom: 1px solid var(--st-border-color-light, #e8edee);
+  border-bottom: 1px solid var(--st-border-color-light, #f2e8ca);
 }
 
 .section-title { font-size: 1.2rem; }

@@ -43,7 +43,7 @@ def build_priority_matrix(
         },
     )
     figure.update_traces(
-        marker={"opacity": 0.76, "line": {"color": "white", "width": 0.8}},
+        marker={"opacity": 0.76, "line": {"color": "#FBEFD3", "width": 0.8}},
         hovertemplate=(
             "<b>%{customdata[1]}</b><br>ID: %{customdata[0]} · Kelas %{customdata[2]}<br>"
             "Defisit digital: %{x:.3f}<br>Beban operasional: %{y:.3f}<br>"
@@ -130,7 +130,7 @@ def build_priority_ranking(dataframe: pd.DataFrame, limit: int = 15) -> go.Figur
                 x=[0, row["intervention_priority_score"]],
                 y=[label, label],
                 mode="lines",
-                line={"color": "#D8DDE0", "width": 2},
+                line={"color": "#E8DFC0", "width": 2},
                 hoverinfo="skip",
                 showlegend=False,
             )
@@ -143,7 +143,7 @@ def build_priority_ranking(dataframe: pd.DataFrame, limit: int = 15) -> go.Figur
             marker={
                 "size": 11,
                 "color": ranked["intervention_tier"].map(TIER_COLORS),
-                "line": {"color": "white", "width": 1},
+                "line": {"color": "#FBEFD3", "width": 1},
             },
             customdata=ranked[
                 [

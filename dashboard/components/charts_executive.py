@@ -43,7 +43,7 @@ def build_priority_quadrant(
         },
     )
     figure.update_traces(
-        marker={"opacity": 0.78, "line": {"color": "#FFFFFF", "width": 0.8}},
+        marker={"opacity": 0.78, "line": {"color": "#FBEFD3", "width": 0.8}},
         hovertemplate=(
             "<b>%{customdata[1]}</b><br>"
             "ID: %{customdata[0]}<br>Provinsi: %{customdata[2]}<br>"
@@ -146,7 +146,7 @@ def build_province_heatmap(dataframe: pd.DataFrame) -> go.Figure:
             zmin=0,
             zmax=1,
             colorscale=[
-                [0.0, "#F2F4F5"],
+                [0.0, "#F1E9D0"],
                 [0.5, "#F6D68A"],
                 [1.0, COLORS["danger"]],
             ],

@@ -5,22 +5,23 @@ from __future__ import annotations
 import plotly.graph_objects as go
 
 COLORS = {
-    "ink": "#212B32",
-    "secondary": "#4C6272",
-    "muted": "#768692",
-    "grid": "#E8EDEE",
-    "surface": "#FFFFFF",
+    "ink": "#33413C",
+    "secondary": "#4B5D56",
+    "muted": "#637066",
+    "grid": "#E8DFC0",
+    "surface": "#FBEFD3",
     "primary": "#1F4F3F",
     "primary_dark": "#2A6354",
     "teal": "#3C7863",
     "lime": "#9DC03F",
+    "gold": "#FDD75C",
     "purple": "#6929C4",
     "cyan": "#1192E8",
     "success": "#006747",
     "watch": "#B28600",
     "danger": "#A2191F",
     "critical": "#750E13",
-    "unknown": "#AEB7BD",
+    "unknown": "#ABA382",
 }
 
 CATEGORICAL = [
@@ -35,9 +36,9 @@ CATEGORICAL = [
 ]
 
 MATURITY_SCALE = [
-    [0.00, "#EFF4F3"],
-    [0.20, "#9AB9AE"],
-    [0.40, "#457E6A"],
+    [0.00, "#F1E9D0"],
+    [0.20, "#9BB39C"],
+    [0.40, "#457D68"],
     [0.60, "#306A59"],
     [0.80, "#265C4D"],
     [1.00, "#1F4F3F"],
@@ -88,7 +89,7 @@ def apply_chart_theme(figure: go.Figure, *, height: int = 420) -> go.Figure:
         margin={"l": 46, "r": 18, "t": 22, "b": 48},
         hoverlabel={
             "bgcolor": COLORS["surface"],
-            "bordercolor": "#D8DDE0",
+            "bordercolor": "#E8DFC0",
             "font": {"color": COLORS["ink"], "size": 12},
             "align": "left",
             "namelength": -1,
