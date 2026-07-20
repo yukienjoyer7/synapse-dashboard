@@ -32,7 +32,6 @@ def run_dashboard() -> None:
             PAGE_DIR / "executive_summary.py",
             title="Ringkasan eksekutif",
             icon=":material/dashboard:",
-            url_path="ringkasan",
             default=True,
         ),
         st.Page(
