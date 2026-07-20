@@ -8,6 +8,7 @@ from typing import Any
 import pandas as pd
 import streamlit as st
 
+from dashboard.components.healthops_ui import mount_healthops_ui
 from dashboard.state import set_selected_hospital
 
 
@@ -52,5 +53,16 @@ def render_paginated_table(
             hospital_id = str(selected["id_rumah_sakit"])
             set_selected_hospital(hospital_id, str(selected.get("nama_rumah_sakit", "")))
 
-    st.caption(f"Halaman {page} dari {page_count} · {len(dataframe)} baris")
+    mount_healthops_ui(
+        "table_footer",
+        {
+            "start": start + 1,
+            "end": start + len(visible),
+            "total": len(dataframe),
+            "page": page,
+            "pages": page_count,
+            "selectable": selectable and "id_rumah_sakit" in visible.columns,
+        },
+        key=f"healthops-table-footer-{key}",
+    )
     return hospital_id

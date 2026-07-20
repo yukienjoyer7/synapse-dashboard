@@ -12,8 +12,18 @@ from dashboard.state import set_selected_hospital
 
 PLOTLY_CONFIG = {
     "displaylogo": False,
+    "displayModeBar": "hover",
+    "responsive": True,
     "scrollZoom": False,
-    "modeBarButtonsToRemove": ["lasso2d", "select2d"],
+    "modeBarButtonsToRemove": [
+        "autoScale2d",
+        "lasso2d",
+        "pan2d",
+        "select2d",
+        "zoom2d",
+        "zoomIn2d",
+        "zoomOut2d",
+    ],
     "toImageButtonOptions": {"format": "png", "filename": "synapse-healthops-chart"},
 }
 

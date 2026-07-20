@@ -137,6 +137,27 @@ COMPONENT_CSS = """
   line-height: 1.45;
 }
 
+.table-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 2rem;
+  padding-top: 0.38rem;
+  color: var(--st-gray-text-color, #4c6272);
+  border-top: 1px solid var(--st-border-color-light, #e8edee);
+  font-size: 0.7rem;
+  line-height: 1.4;
+}
+
+.table-range {
+  color: var(--st-text-color, #212b32);
+  font-family: var(--st-code-font, monospace);
+  font-weight: 600;
+}
+
+.table-hint { margin: 0; text-align: right; }
+
 .eyebrow,
 .context-kicker,
 .brand-kicker,
@@ -639,6 +660,26 @@ function renderEntityHeader(root, data) {
   root.append(article)
 }
 
+function renderTableFooter(root, data) {
+  const footer = element("footer", "table-footer")
+  footer.setAttribute("aria-label", "Ringkasan tabel")
+  footer.append(
+    element(
+      "span",
+      "table-range",
+      `${data.start}–${data.end} / ${data.total} baris · halaman ${data.page} dari ${data.pages}`,
+    ),
+  )
+  footer.append(
+    element(
+      "p",
+      "table-hint",
+      data.selectable ? "Pilih satu baris untuk membuka konteks rumah sakit." : "Tabel informasi.",
+    ),
+  )
+  root.append(footer)
+}
+
 export default function(component) {
   const { data, parentElement } = component
   const root = parentElement.querySelector("#healthops-root")
@@ -653,6 +694,7 @@ export default function(component) {
     sidebar_brand: renderSidebarBrand,
     section_header: renderSectionHeader,
     entity_header: renderEntityHeader,
+    table_footer: renderTableFooter,
   }
   const renderer = renderers[data.variant]
   if (renderer) renderer(root, data)
