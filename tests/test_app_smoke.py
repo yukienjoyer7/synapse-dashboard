@@ -23,6 +23,37 @@ if app.exception:
     raise SystemExit(1)
 """
 
+FILTER_TOOLBAR_TEST_SCRIPT = """
+from pathlib import Path
+
+from streamlit.testing.v1 import AppTest
+
+app = AppTest.from_file(str(Path("streamlit_app.py"))).run(timeout=30)
+assert not app.exception
+assert not app.sidebar.multiselect
+assert not app.sidebar.selectbox
+assert [widget.label for widget in app.selectbox] == ["Cari rumah sakit"]
+assert [widget.label for widget in app.multiselect] == ["Provinsi", "Kepemilikan"]
+assert [widget.label for widget in app.get("button_group")] == [
+    "Kelas rumah sakit",
+    "Status implementasi RME",
+    "Status koneksi SatuSehat",
+]
+
+popover = app.get("popover")[0]
+assert popover.proto.popover.label == "Filter portofolio"
+assert popover.proto.popover.type == "secondary"
+
+app.multiselect[0].select("DKI Jakarta").run(timeout=30)
+popover = app.get("popover")[0]
+assert popover.proto.popover.label == "Filter · 1 aktif"
+assert popover.proto.popover.type == "primary"
+
+app.button[0].click().run(timeout=30)
+assert app.get("popover")[0].proto.popover.label == "Filter portofolio"
+assert app.multiselect[0].value == []
+"""
+
 APP_FILES = [
     Path("streamlit_app.py"),
     Path("dashboard/app.py"),
@@ -59,3 +90,15 @@ def test_legacy_launcher_resolves_package_outside_repository(tmp_path: Path) -> 
     )
     assert result.returncode == 0
     assert "ModuleNotFoundError" not in result.stderr
+
+
+def test_global_filters_render_in_workspace_toolbar() -> None:
+    result = subprocess.run(
+        [sys.executable, "-c", FILTER_TOOLBAR_TEST_SCRIPT],
+        cwd=PROJECT_ROOT,
+        capture_output=True,
+        text=True,
+        timeout=45,
+        check=False,
+    )
+    assert result.returncode == 0, result.stdout + result.stderr
