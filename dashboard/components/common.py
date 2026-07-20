@@ -81,6 +81,27 @@ def render_section_header(
     )
 
 
+def render_entity_header(
+    title: str,
+    identifier: str,
+    *,
+    pills: list[dict[str, str]],
+    meta: str,
+    key: str,
+) -> None:
+    """Render a compact entity identity surface for detail views."""
+    mount_healthops_ui(
+        "entity_header",
+        {
+            "title": title,
+            "identifier": identifier,
+            "pills": pills,
+            "meta": meta,
+        },
+        key=f"healthops-entity-{key}",
+    )
+
+
 def render_empty_state() -> None:
     st.warning(
         "Tidak ada rumah sakit yang sesuai dengan kombinasi filter aktif. "

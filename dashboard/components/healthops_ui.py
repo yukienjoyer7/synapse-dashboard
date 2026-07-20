@@ -47,6 +47,96 @@ COMPONENT_CSS = """
   gap: 1rem;
 }
 
+.entity-header {
+  position: relative;
+  padding: 1rem 1.05rem;
+  overflow: hidden;
+  border: 1px solid var(--st-border-color, #d8dde0);
+  border-radius: var(--st-base-radius, 6px);
+  background:
+    linear-gradient(100deg, var(--st-blue-background-color, #eaf5fc), transparent 52%),
+    var(--st-secondary-background-color, #fff);
+}
+
+.entity-header::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4rem;
+  height: 4rem;
+  content: "";
+  border: solid var(--st-primary-color, #005eb8);
+  border-width: 0 1px 1px 0;
+  opacity: 0.12;
+  transform: translate(1.5rem, -1.5rem) rotate(45deg);
+}
+
+.entity-topline {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.entity-title {
+  margin: 0;
+  color: var(--st-heading-color, #212b32);
+  font-family: var(--st-heading-font, var(--st-font));
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.entity-id {
+  flex: 0 0 auto;
+  margin: 0.2rem 0 0;
+  color: var(--st-primary-color, #005eb8);
+  font-family: var(--st-code-font, monospace);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.entity-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.38rem;
+  margin-top: 0.7rem;
+}
+
+.entity-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.45rem;
+  padding: 0.2rem 0.48rem;
+  color: var(--st-gray-text-color, #4c6272);
+  border: 1px solid var(--st-border-color, #d8dde0);
+  border-radius: 999px;
+  background: var(--st-secondary-background-color, #fff);
+  font-size: 0.66rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.entity-pill[data-tone="info"] {
+  color: var(--st-blue-text-color, #004b76);
+  border-color: var(--st-blue-color, #005eb8);
+  background: var(--st-blue-background-color, #eaf5fc);
+}
+
+.entity-pill[data-tone="risk"] {
+  color: var(--st-red-text-color, #a2191f);
+  border-color: var(--st-red-color, #a2191f);
+  background: var(--st-red-background-color, #fff1f1);
+}
+
+.entity-meta {
+  margin: 0.72rem 0 0;
+  color: var(--st-gray-text-color, #4c6272);
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+
 .eyebrow,
 .context-kicker,
 .brand-kicker,
@@ -530,6 +620,25 @@ function renderSectionHeader(root, data) {
   root.append(header)
 }
 
+function renderEntityHeader(root, data) {
+  const article = element("article", "entity-header")
+  const top = element("div", "entity-topline")
+  top.append(element("h2", "entity-title", data.title))
+  top.append(element("p", "entity-id", data.identifier))
+  article.append(top)
+
+  const pills = element("div", "entity-pills")
+  pills.setAttribute("aria-label", "Atribut rumah sakit")
+  for (const item of data.pills || []) {
+    const pill = element("span", "entity-pill", item.label)
+    pill.dataset.tone = item.tone || "neutral"
+    pills.append(pill)
+  }
+  article.append(pills)
+  article.append(element("p", "entity-meta", data.meta))
+  root.append(article)
+}
+
 export default function(component) {
   const { data, parentElement } = component
   const root = parentElement.querySelector("#healthops-root")
@@ -543,6 +652,7 @@ export default function(component) {
     chart_insight: renderChartInsight,
     sidebar_brand: renderSidebarBrand,
     section_header: renderSectionHeader,
+    entity_header: renderEntityHeader,
   }
   const renderer = renderers[data.variant]
   if (renderer) renderer(root, data)

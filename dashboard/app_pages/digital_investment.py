@@ -20,6 +20,7 @@ from dashboard.components.common import (
     render_kpi_row,
     render_method_note,
     render_page_header,
+    render_section_header,
 )
 from dashboard.components.tables import render_paginated_table
 from dashboard.context import get_page_context
@@ -156,7 +157,12 @@ with right:
         key="digital-investment-components",
     )
 
-st.subheader("Daftar investigasi konversi investasi", anchor=False)
+render_section_header(
+    "Daftar investigasi konversi investasi",
+    subtitle="Urutkan gap terendah untuk memulai audit konversi sebelum ekspansi anggaran.",
+    kicker="Investigasi",
+    key="digital-investigation",
+)
 search = st.text_input(
     "Cari rumah sakit pada tabel",
     placeholder="Ketik nama, ID, atau provinsi",

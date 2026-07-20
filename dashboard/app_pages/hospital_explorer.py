@@ -12,10 +12,12 @@ from dashboard.components.charts_hospital import (
 )
 from dashboard.components.common import (
     KpiCard,
+    render_entity_header,
     render_filter_context,
     render_kpi_row,
     render_method_note,
     render_page_header,
+    render_section_header,
 )
 from dashboard.components.tables import render_paginated_table
 from dashboard.context import get_page_context
@@ -55,20 +57,23 @@ selected_id = st.selectbox(
 selected = portfolio.loc[portfolio["id_rumah_sakit"].eq(selected_id)].iloc[0]
 set_selected_hospital(str(selected_id), str(selected["nama_rumah_sakit"]))
 
-with st.container(border=True, key="hospital-profile-header"):
-    st.subheader(f"{selected['nama_rumah_sakit']} · {selected['id_rumah_sakit']}", anchor=False)
-    st.markdown(
-        f":blue-badge[Kelas {selected['kelas_rumah_sakit']}] "
-        f":gray-badge[{selected['kepemilikan']}] "
-        f":violet-badge[{selected['provinsi']}] "
-        f":red-badge[{selected['intervention_tier']}]"
-    )
-    st.caption(
+render_entity_header(
+    str(selected["nama_rumah_sakit"]),
+    str(selected["id_rumah_sakit"]),
+    pills=[
+        {"label": f"Kelas {selected['kelas_rumah_sakit']}", "tone": "info"},
+        {"label": str(selected["kepemilikan"]), "tone": "neutral"},
+        {"label": str(selected["provinsi"]), "tone": "neutral"},
+        {"label": str(selected["intervention_tier"]), "tone": "risk"},
+    ],
+    meta=(
         f"{selected['kota_kabupaten']} · {int(selected['jumlah_tempat_tidur'])} tempat tidur · "
         f"{int(selected['jumlah_jenis_layanan'])} jenis layanan · "
         f"RME: {selected['status_implementasi_rme']} · "
         f"SatuSehat: {selected['status_terhubung_satusehat']}"
-    )
+    ),
+    key="hospital-profile",
+)
 
 peer_group = portfolio.loc[portfolio["kelas_rumah_sakit"].eq(selected["kelas_rumah_sakit"])].copy()
 peer_median_maturity = peer_group["skor_kematangan_digital"].median()
@@ -164,7 +169,12 @@ recommendation = bundle.recommendations.loc[
 ]
 
 with st.container(border=True):
-    st.subheader("Hambatan dan rekomendasi", anchor=False)
+    render_section_header(
+        "Hambatan dan rekomendasi",
+        subtitle="Diagnosis portofolio yang harus divalidasi melalui asesmen lapangan.",
+        kicker="Keputusan",
+        key="hospital-recommendation",
+    )
     st.markdown(f"**Hambatan utama:** {selected['root_cause_primary']}")
     st.caption(
         f"Multi-label: {root_detail['root_cause_multilabel']} · "
@@ -180,10 +190,14 @@ with st.container(border=True):
             f"**Risiko implementasi:** {rec['risiko_utama']}"
         )
 
-st.subheader("Rumah sakit pembanding", anchor=False)
-st.caption(
-    f"Peer table mengikuti definisi notebook: seluruh Kelas {selected['kelas_rumah_sakit']}, "
-    "bukan subset filter aktif."
+render_section_header(
+    "Rumah sakit pembanding",
+    subtitle=(
+        f"Peer notebook = seluruh Kelas {selected['kelas_rumah_sakit']}; "
+        "tidak mengikuti subset filter aktif."
+    ),
+    kicker="Peer",
+    key="hospital-peers",
 )
 peer_table = peer_group.sort_values("intervention_priority_score", ascending=False)
 render_paginated_table(

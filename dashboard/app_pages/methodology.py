@@ -9,7 +9,12 @@ import streamlit as st
 
 from dashboard.components.charts import render_chart
 from dashboard.components.charts_methodology import build_missingness_chart
-from dashboard.components.common import KpiCard, render_kpi_row, render_page_header
+from dashboard.components.common import (
+    KpiCard,
+    render_kpi_row,
+    render_page_header,
+    render_section_header,
+)
 from dashboard.context import get_page_context
 from dashboard.utils.export import render_csv_download
 from dashboard.utils.formatting import format_integer, format_percentage
@@ -226,7 +231,12 @@ dataset_tab, metric_tab, priority_tab, model_tab, quality_tab, limit_tab = st.ta
 )
 
 with dataset_tab:
-    st.subheader("Kontrak dataset", anchor=False)
+    render_section_header(
+        "Kontrak dataset",
+        subtitle="Unit analisis, cakupan, sumber, dan versi yang berlaku di seluruh dashboard.",
+        kicker="Kontrak",
+        key="methodology-dataset-contract",
+    )
     geographic_scope = f"{len(hospitals)} rumah sakit di {hospitals['provinsi'].nunique()} provinsi"
     dataset_summary = pd.DataFrame(
         [
@@ -242,16 +252,31 @@ with dataset_tab:
     )
     _render_table(dataset_summary, "methodology-dataset-summary")
 
-    st.subheader("Kamus KPI", anchor=False)
+    render_section_header(
+        "Kamus KPI",
+        subtitle="Definisi operasional, denominator, unit, dan arah interpretasi.",
+        kicker="Kamus",
+        key="methodology-kpi-dictionary",
+    )
     st.caption("Formula mengikuti denominator cohort aktif kecuali dinyatakan lain.")
     _render_table(_kpi_dictionary(), "methodology-kpi-dictionary")
 
 with metric_tab:
-    st.subheader("Metrik turunan", anchor=False)
+    render_section_header(
+        "Metrik turunan",
+        subtitle="Transformasi yang dihitung notebook dan dibaca sebagai artefak immutable.",
+        kicker="Derived",
+        key="methodology-derived-metrics",
+    )
     st.caption("Seluruh metrik ini dihitung oleh notebook dan hanya dibaca oleh dashboard.")
     _render_table(_derived_metrics(), "methodology-derived-metrics")
 
-    st.subheader("Definisi peer", anchor=False)
+    render_section_header(
+        "Definisi peer",
+        subtitle="Cohort pembanding tetap menjaga benchmark konsisten saat filter berubah.",
+        kicker="Benchmark",
+        key="methodology-peer-definition",
+    )
     st.info(
         "Peer utama adalah seluruh rumah sakit dengan kelas yang sama. Benchmark peer tidak "
         "mengikuti filter dashboard, sehingga perbandingan sebuah rumah sakit tetap konsisten. "
@@ -268,7 +293,12 @@ with metric_tab:
     _render_table(peer_sizes, "methodology-peer-sizes")
 
 with priority_tab:
-    st.subheader("Formula Skor Prioritas", anchor=False)
+    render_section_header(
+        "Formula Skor Prioritas",
+        subtitle="Indeks triase portofolio dari tiga komponen berbobot.",
+        kicker="Formula",
+        key="methodology-priority-formula",
+    )
     weights = config["priority_weights"]
     st.latex(
         rf"Priority = {weights['digital_deficit']:.2f}D + "
@@ -289,7 +319,12 @@ with priority_tab:
     )
     _render_table(weight_table, "methodology-priority-weights")
 
-    st.subheader("Threshold yang dikelola konfigurasi", anchor=False)
+    render_section_header(
+        "Threshold yang dikelola konfigurasi",
+        subtitle="Parameter analitik eksplisit yang dapat ditelusuri ke artefak konfigurasi.",
+        kicker="Governed",
+        key="methodology-thresholds",
+    )
     thresholds = pd.DataFrame(
         [
             ("Rentang referensi BOR", str(config["bor_reference_range"]), "%"),
@@ -326,7 +361,12 @@ with priority_tab:
     )
 
 with model_tab:
-    st.subheader("Model asosiasi waktu respons rujukan", anchor=False)
+    render_section_header(
+        "Model asosiasi waktu respons rujukan",
+        subtitle="Estimasi OLS dengan standard error robust HC3 yang dipersistenkan notebook.",
+        kicker="Asosiasi",
+        key="methodology-association-model",
+    )
     st.caption(
         "OLS dengan standard error robust HC3. Dashboard membaca koefisien dan ringkasan yang "
         "telah dipersistenkan; tidak menjalankan regresi."
@@ -366,7 +406,12 @@ with model_tab:
         data_version=bundle.data_version,
     )
 
-    st.subheader("Performa model", anchor=False)
+    render_section_header(
+        "Performa model",
+        subtitle="Validasi silang menentukan kelayakan output untuk skenario individual.",
+        kicker="Validation",
+        key="methodology-model-performance",
+    )
     maturity_models = pd.DataFrame(bundle.model_metrics["maturity_model"])
     operational_models = pd.DataFrame(bundle.model_metrics["operational_model"])
     left, right = st.columns(2, gap="large")
@@ -424,7 +469,12 @@ with quality_tab:
         data_version=bundle.data_version,
     )
 
-    st.subheader("Validasi artefak runtime", anchor=False)
+    render_section_header(
+        "Validasi artefak runtime",
+        subtitle="Pemeriksaan cakupan, relasi, dan konsistensi sebelum halaman dirender.",
+        kicker="Runtime",
+        key="methodology-runtime-validation",
+    )
     validation = pd.DataFrame(
         [
             ("ID rumah sakit unik", len(hospitals), duplicate_ids, "Lolos"),
@@ -449,7 +499,12 @@ with quality_tab:
     )
 
 with limit_tab:
-    st.subheader("Batas interpretasi", anchor=False)
+    render_section_header(
+        "Batas interpretasi",
+        subtitle="Kondisi yang membatasi inferensi dan penggunaan hasil untuk keputusan.",
+        kicker="Batasan",
+        key="methodology-limitations",
+    )
     st.markdown(
         """
 - Data bersifat **cross-sectional**; hubungan tidak dapat diinterpretasikan sebagai kausal.
@@ -463,7 +518,12 @@ with limit_tab:
 """
     )
 
-    st.subheader("Versi dan reproduktibilitas", anchor=False)
+    render_section_header(
+        "Versi dan reproduktibilitas",
+        subtitle="Jejak data, seed, dependency lock, dan validasi yang membentuk hasil.",
+        kicker="Repro",
+        key="methodology-versioning",
+    )
     version_table = pd.DataFrame(
         [
             ("Data version", bundle.data_version),
@@ -478,7 +538,12 @@ with limit_tab:
     with st.expander("Konfigurasi analitik lengkap", icon=":material/settings:"):
         st.code(json.dumps(config, indent=2, ensure_ascii=False), language="json")
 
-    st.subheader("Artefak runtime", anchor=False)
+    render_section_header(
+        "Artefak runtime",
+        subtitle="Berkas persisted yang menjadi satu-satunya sumber data dashboard.",
+        kicker="Lineage",
+        key="methodology-artifacts",
+    )
     artifacts = pd.DataFrame(
         {
             "Artefak": [

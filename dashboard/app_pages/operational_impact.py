@@ -18,6 +18,7 @@ from dashboard.components.common import (
     render_kpi_row,
     render_method_note,
     render_page_header,
+    render_section_header,
 )
 from dashboard.components.tables import render_paginated_table
 from dashboard.context import get_page_context
@@ -166,7 +167,12 @@ combined_estimate = bundle.adjusted_associations.loc[
 ].iloc[0]
 governance = bundle.model_metrics["model_governance"]
 with st.container(border=True, key="operational-interpretation"):
-    st.subheader("Interpretasi untuk keputusan", anchor=False)
+    render_section_header(
+        "Interpretasi untuk keputusan",
+        subtitle="Ringkasan model, validation gate, dan batas penggunaan dalam satu pandangan.",
+        kicker="Governance",
+        key="operational-interpretation",
+    )
     st.markdown(
         f"""
 - Dalam model gabungan, kenaikan **10 poin kematangan digital berkaitan dengan perubahan
@@ -184,7 +190,12 @@ with st.container(border=True, key="operational-interpretation"):
 """
     )
 
-st.subheader("Tabel pembanding operasional", anchor=False)
+render_section_header(
+    "Tabel pembanding operasional",
+    subtitle="Bandingkan outcome dan burden pada cohort aktif tanpa mengubah peer kelas.",
+    kicker="Pembanding",
+    key="operational-table",
+)
 operational_table = hospitals.sort_values("rata_rata_waktu_respons_rujukan_menit", ascending=False)
 render_paginated_table(
     operational_table,

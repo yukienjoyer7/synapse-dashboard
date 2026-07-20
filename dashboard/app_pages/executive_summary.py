@@ -19,6 +19,7 @@ from dashboard.components.common import (
     render_kpi_row,
     render_method_note,
     render_page_header,
+    render_section_header,
 )
 from dashboard.components.tables import render_paginated_table
 from dashboard.context import get_page_context
@@ -152,10 +153,11 @@ with left:
     )
 with right:
     with st.container(border=True):
-        st.subheader("Temuan portofolio", anchor=False)
-        st.caption(
-            "Temuan berikut berasal langsung dari artefak notebook dan berlaku untuk "
-            "seluruh sampel."
+        render_section_header(
+            "Temuan portofolio",
+            subtitle="Artefak notebook untuk seluruh sampel, terpisah dari filter aktif.",
+            kicker="Sinyal",
+            key="executive-findings",
         )
         finding_order = ["Scope", "Prioritas", "Keputusan"]
         findings = bundle.executive_findings.set_index("area")["temuan"]
@@ -163,7 +165,12 @@ with right:
             st.markdown(f"**{area}**")
             st.write(findings.get(area, "Temuan tidak tersedia."))
 
-st.subheader("Rumah sakit dengan prioritas tertinggi", anchor=False)
+render_section_header(
+    "Rumah sakit dengan prioritas tertinggi",
+    subtitle="Sepuluh unit teratas yang tetap berada dalam cohort filter aktif.",
+    kicker="Tindakan",
+    key="executive-watchlist",
+)
 visible_ids = set(hospitals["id_rumah_sakit"])
 watchlist = bundle.priority.loc[bundle.priority["id_rumah_sakit"].isin(visible_ids)].head(10)
 render_paginated_table(

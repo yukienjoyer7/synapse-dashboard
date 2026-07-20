@@ -15,10 +15,12 @@ from dashboard.components.charts_priority import (
 from dashboard.components.common import (
     KpiCard,
     render_empty_state,
+    render_entity_header,
     render_filter_context,
     render_kpi_row,
     render_method_note,
     render_page_header,
+    render_section_header,
 )
 from dashboard.components.tables import render_paginated_table
 from dashboard.context import get_page_context
@@ -133,7 +135,12 @@ with right:
         selectable=True,
     )
 
-st.subheader("Daftar tindakan terprioritas", anchor=False)
+render_section_header(
+    "Daftar tindakan terprioritas",
+    subtitle="Saring tier dan hambatan untuk membentuk antrean asesmen yang dapat ditindaklanjuti.",
+    kicker="Antrean",
+    key="priority-actions",
+)
 controls = st.container(horizontal=True, vertical_alignment="bottom")
 with controls:
     search = st.text_input(
@@ -225,9 +232,11 @@ render_csv_download(
     data_version=bundle.data_version,
 )
 
-st.subheader("Rencana tindakan per cohort", anchor=False)
-st.caption(
-    "Artefak rekomendasi notebook untuk seluruh portofolio; tidak berubah oleh filter halaman."
+render_section_header(
+    "Rencana tindakan per cohort",
+    subtitle="Artefak rekomendasi notebook untuk seluruh portofolio; tidak berubah oleh filter.",
+    kicker="Rencana",
+    key="priority-cohorts",
 )
 st.dataframe(
     bundle.recommendations,
@@ -268,8 +277,16 @@ if selected_id:
     if not selected.empty:
         row = selected.iloc[0]
         with st.container(border=True):
-            st.subheader(f"{row['id_rumah_sakit']} · {row['nama_rumah_sakit']}", anchor=False)
-            st.markdown(f":red-badge[{row['intervention_tier']}] **{row['root_cause_primary']}**")
+            render_entity_header(
+                str(row["nama_rumah_sakit"]),
+                str(row["id_rumah_sakit"]),
+                pills=[
+                    {"label": str(row["intervention_tier"]), "tone": "risk"},
+                    {"label": str(row["root_cause_primary"]), "tone": "info"},
+                ],
+                meta="Rumah sakit terpilih dari visualisasi · tinjau rekomendasi sebelum asesmen",
+                key="priority-selected-hospital",
+            )
             st.write(row["recommended_intervention"])
             if st.button(
                 "Buka profil lengkap",
