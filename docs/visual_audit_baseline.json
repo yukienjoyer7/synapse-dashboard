@@ -1,0 +1,158 @@
+{
+  "audit_assumptions": {
+    "audit_type": "Full 12-category design, AI-slop, and accessibility audit",
+    "input": "Streamlit source, theme configuration, shared CSS, and all six page structures",
+    "conformance": "WCAG 2.1 AA",
+    "release_target": "Design A, AI-slop A, accessibility A, token compliance >= 90%"
+  },
+  "categories": {
+    "visual_hierarchy": {
+      "score": 6.5,
+      "findings": [
+        {
+          "description": "Page title, decision question, provenance, filter context, and KPI strip use similar visual weight, weakening the first-screen decision path.",
+          "priority": "high",
+          "fix": "Create a compact branded page header and a distinct context strip before the KPI hierarchy.",
+          "impact": 8
+        },
+        {
+          "description": "Five or six KPI containers repeat the same native metric treatment without a clear status or benchmark hierarchy.",
+          "priority": "high",
+          "fix": "Replace the KPI strip with a bespoke component that orders label, value, comparison, status, and denominator consistently.",
+          "impact": 8
+        }
+      ]
+    },
+    "typography": {
+      "score": 6.5,
+      "findings": [
+        {
+          "description": "The application uses the generic sans-serif theme and relies on Streamlit defaults for most of its type scale.",
+          "priority": "medium",
+          "fix": "Apply the specified Source Sans 3 family and explicit heading, body, caption, and numeric-value styles.",
+          "impact": 6
+        }
+      ]
+    },
+    "color_contrast": {
+      "score": 9.0,
+      "findings": [
+        {
+          "description": "All tested body, muted, link, button, warning, success, and danger color pairs pass WCAG AA.",
+          "priority": "cosmetic",
+          "fix": "Preserve the governed palette and move remaining hardcoded surface colors into shared tokens.",
+          "impact": 3
+        }
+      ]
+    },
+    "spacing_layout": {
+      "score": 6.0,
+      "findings": [
+        {
+          "description": "The global CSS defines only a handful of refinements, leaving page rhythm, card padding, section separation, and content width mostly implicit.",
+          "priority": "high",
+          "fix": "Implement the documented 4-48px spacing scale and consistent analytical content width across shared surfaces.",
+          "impact": 8
+        },
+        {
+          "description": "Nearly every analytical region uses an identical border and shadow, producing box fatigue instead of meaningful grouping.",
+          "priority": "medium",
+          "fix": "Use borders for analytical cards, whitespace for section grouping, and elevation only for interactive or selected surfaces.",
+          "impact": 6
+        }
+      ]
+    },
+    "interaction_states": {
+      "score": 7.0,
+      "findings": [
+        {
+          "description": "Native widgets provide reliable states, but chart cards and downloadable table regions have little visual response or action grouping.",
+          "priority": "medium",
+          "fix": "Add consistent hover, focus-visible, selected, empty, and action-area treatments without changing behavior.",
+          "impact": 6
+        }
+      ]
+    },
+    "navigation_ia": {
+      "score": 8.0,
+      "findings": [
+        {
+          "description": "The six-page decision flow is clear, but the sidebar lacks a product lockup and stronger separation between navigation, filters, and metadata.",
+          "priority": "medium",
+          "fix": "Add a compact brand component and structure filter groups as a SaaS control rail.",
+          "impact": 6
+        }
+      ]
+    },
+    "responsive": {
+      "score": 6.0,
+      "findings": [
+        {
+          "description": "Only the KPI row has an explicit mobile rule; chart grids, page headers, context rows, and wide tables rely on default reflow.",
+          "priority": "high",
+          "fix": "Add component-level 1280px, 992px, and 768px behavior and visible table overflow affordances.",
+          "impact": 8
+        }
+      ]
+    },
+    "accessibility": {
+      "score": 8.5,
+      "findings": [
+        {
+          "description": "Native controls retain visible labels and all audited semantic color pairs pass AA, but bespoke landmarks and reduced-motion safeguards are absent.",
+          "priority": "medium",
+          "fix": "Give custom surfaces semantic headings and roles, retain text status labels, and honor prefers-reduced-motion.",
+          "impact": 7
+        }
+      ]
+    },
+    "motion_animation": {
+      "score": 8.0,
+      "findings": [
+        {
+          "description": "The interface avoids decorative motion, but future hover transitions need an explicit reduced-motion fallback.",
+          "priority": "low",
+          "fix": "Keep transitions short and disable them when reduced motion is requested.",
+          "impact": 4
+        }
+      ]
+    },
+    "content_microcopy": {
+      "score": 9.0,
+      "findings": [
+        {
+          "description": "Decision questions, caveats, units, and empty-state guidance are specific and consistently avoid causal overclaiming.",
+          "priority": "cosmetic",
+          "fix": "Preserve the current information density while tightening repeated metadata into shared components.",
+          "impact": 3
+        }
+      ]
+    },
+    "ai_slop": {
+      "score": 7.0,
+      "findings": [
+        {
+          "description": "The product avoids generic gradients and marketing copy, but repeated equal cards and untouched framework chrome make the interface feel assembled rather than authored.",
+          "priority": "high",
+          "fix": "Introduce one distinctive, domain-specific visual component system instead of adding decorative gradients or oversized rounded cards.",
+          "impact": 8
+        }
+      ]
+    },
+    "performance_design": {
+      "score": 9.0,
+      "findings": [
+        {
+          "description": "Artifact loading is cached and the dataset is small; visual changes should avoid frontend dependencies and layout-shifting assets.",
+          "priority": "cosmetic",
+          "fix": "Use an inline CCv2 component with no build step, remote image, or runtime dependency.",
+          "impact": 3
+        }
+      ]
+    }
+  },
+  "coherence": {
+    "score": 6.5,
+    "notes": "The analytical language and governed palette are coherent, but hierarchy, spacing, and component identity still depend heavily on Streamlit defaults."
+  }
+}
