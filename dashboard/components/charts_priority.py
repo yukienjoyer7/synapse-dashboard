@@ -7,7 +7,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
-from dashboard.components.chart_theme import COLORS, TIER_COLORS, apply_chart_theme
+from dashboard.components.chart_theme import COLORS, TIER_COLORS, apply_chart_theme, shorten_label
 
 
 def build_priority_matrix(
@@ -85,6 +85,7 @@ def build_root_cause_pareto(dataframe: pd.DataFrame) -> go.Figure:
     """Count primary bottlenecks and show their cumulative share."""
     counts = dataframe["root_cause_primary"].value_counts().rename_axis("hambatan").reset_index()
     counts.columns = ["hambatan", "jumlah"]
+    counts["hambatan"] = counts["hambatan"].map(shorten_label)
     counts["kumulatif"] = counts["jumlah"].cumsum() / counts["jumlah"].sum()
     figure = make_subplots(specs=[[{"secondary_y": True}]])
     figure.add_trace(
@@ -113,8 +114,8 @@ def build_root_cause_pareto(dataframe: pd.DataFrame) -> go.Figure:
     figure.update_yaxes(
         title_text="Share kumulatif", range=[0, 1.05], tickformat=".0%", secondary_y=True
     )
-    figure.update_xaxes(tickangle=-25)
-    return apply_chart_theme(figure, height=500)
+    figure.update_xaxes(tickangle=-35)
+    return apply_chart_theme(figure, height=520)
 
 
 def build_priority_ranking(dataframe: pd.DataFrame, limit: int = 15) -> go.Figure:

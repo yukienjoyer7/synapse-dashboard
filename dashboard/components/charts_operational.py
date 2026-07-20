@@ -124,7 +124,9 @@ def build_maturity_outcome_medians(outcomes: pd.DataFrame) -> go.Figure:
             row=row,
             col=column,
         )
-    figure.update_xaxes(categoryorder="array", categoryarray=MATURITY_ORDER, title=None)
+    figure.update_xaxes(
+        categoryorder="array", categoryarray=MATURITY_ORDER, title=None, tickangle=-30
+    )
     figure.update_yaxes(title=None)
     return apply_chart_theme(figure, height=560)
 

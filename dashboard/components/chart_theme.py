@@ -49,8 +49,31 @@ TIER_COLORS = {
 }
 
 
+LEGEND_LABEL_MAX_LENGTH = 26
+
+
+def shorten_label(text: str, max_length: int = LEGEND_LABEL_MAX_LENGTH) -> str:
+    """Drop a trailing ' — qualifier' clause and cap the length for legend display.
+
+    Plotly can't wrap a single legend entry or axis tick onto a second line, so a long
+    category name gets silently clipped by the chart card's overflow:hidden on narrow
+    widths. The em-dash qualifier is always redundant with the KPI card, table column, or
+    insight sentence next to the chart. The length cap is a safety net so any category
+    name, current or future, stays inside the width that fits on a 360px-wide chart card.
+    """
+    if not isinstance(text, str):
+        return text
+    short = text.split(" — ", 1)[0]
+    if len(short) > max_length:
+        short = short[: max_length - 1].rstrip() + "…"
+    return short
+
+
 def apply_chart_theme(figure: go.Figure, *, height: int = 420) -> go.Figure:
     """Apply the design system without constraining responsive width."""
+    figure.for_each_trace(
+        lambda trace: trace.update(name=shorten_label(trace.name)) if trace.name else None
+    )
     figure.update_layout(
         template="plotly_white",
         height=height,
@@ -71,8 +94,11 @@ def apply_chart_theme(figure: go.Figure, *, height: int = 420) -> go.Figure:
         },
         legend={
             "title": None,
-            "orientation": "h",
-            "y": -0.16,
+            "orientation": "v",
+            "x": 0,
+            "xanchor": "left",
+            "y": -0.14,
+            "yanchor": "top",
             "font": {"color": COLORS["secondary"], "size": 11},
             "itemclick": "toggle",
             "itemdoubleclick": "toggleothers",
