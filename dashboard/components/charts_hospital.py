@@ -56,7 +56,7 @@ def build_peer_benchmark_profile(
                 x=[row["q1_percentile"], row["q3_percentile"]],
                 y=[row["label"], row["label"]],
                 mode="lines",
-                line={"color": "#CDE6F7", "width": 12},
+                line={"color": "#CEDDD8", "width": 12},
                 hoverinfo="skip",
                 showlegend=False,
             )

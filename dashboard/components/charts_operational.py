@@ -154,8 +154,8 @@ def build_operational_heatmap(dataframe: pd.DataFrame) -> go.Figure:
             zmin=0,
             zmax=1,
             colorscale=[
-                [0.0, "#EAF5FC"],
-                [0.5, "#41B6E6"],
+                [0.0, "#EFF4F3"],
+                [0.5, "#457E6A"],
                 [0.75, COLORS["watch"]],
                 [1.0, COLORS["danger"]],
             ],

@@ -33,7 +33,7 @@ COMPONENT_CSS = """
   left: -1.25rem;
   width: 3px;
   content: "";
-  background: var(--st-primary-color, #005eb8);
+  background: var(--st-primary-color, #1f4f3f);
 }
 
 .hero-topline,
@@ -54,7 +54,7 @@ COMPONENT_CSS = """
   border: 1px solid var(--st-border-color, #d8dde0);
   border-radius: var(--st-base-radius, 6px);
   background:
-    linear-gradient(100deg, var(--st-blue-background-color, #eaf5fc), transparent 52%),
+    linear-gradient(100deg, var(--st-blue-background-color, #eff4f3), transparent 52%),
     var(--st-secondary-background-color, #fff);
 }
 
@@ -65,7 +65,7 @@ COMPONENT_CSS = """
   width: 4rem;
   height: 4rem;
   content: "";
-  border: solid var(--st-primary-color, #005eb8);
+  border: solid var(--st-primary-color, #1f4f3f);
   border-width: 0 1px 1px 0;
   opacity: 0.12;
   transform: translate(1.5rem, -1.5rem) rotate(45deg);
@@ -91,7 +91,7 @@ COMPONENT_CSS = """
 .entity-id {
   flex: 0 0 auto;
   margin: 0.2rem 0 0;
-  color: var(--st-primary-color, #005eb8);
+  color: var(--st-primary-color, #1f4f3f);
   font-family: var(--st-code-font, monospace);
   font-size: 0.72rem;
   font-weight: 600;
@@ -119,9 +119,9 @@ COMPONENT_CSS = """
 }
 
 .entity-pill[data-tone="info"] {
-  color: var(--st-blue-text-color, #004b76);
-  border-color: var(--st-blue-color, #005eb8);
-  background: var(--st-blue-background-color, #eaf5fc);
+  color: var(--st-blue-text-color, #2a6354);
+  border-color: var(--st-blue-color, #1f4f3f);
+  background: var(--st-blue-background-color, #eff4f3);
 }
 
 .entity-pill[data-tone="risk"] {
@@ -163,7 +163,7 @@ COMPONENT_CSS = """
 .brand-kicker,
 .section-kicker {
   margin: 0;
-  color: var(--st-primary-color, #005eb8);
+  color: var(--st-primary-color, #1f4f3f);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -171,7 +171,7 @@ COMPONENT_CSS = """
   text-transform: uppercase;
 }
 
-.eyebrow { color: var(--st-blue-text-color, #004b76); }
+.eyebrow { color: var(--st-blue-text-color, #2a6354); }
 
 .version-chip,
 .context-count,
@@ -221,16 +221,16 @@ COMPONENT_CSS = """
 
 .context-strip {
   padding: 0.78rem 0.92rem;
-  border: 1px solid var(--st-blue-color, #005eb8);
+  border: 1px solid var(--st-blue-color, #1f4f3f);
   border-left-width: 3px;
   border-radius: var(--st-base-radius, 6px);
-  background: var(--st-blue-background-color, #eaf5fc);
+  background: var(--st-blue-background-color, #eff4f3);
 }
 
 .context-copy { min-width: 0; }
 .context-kicker {
   margin-bottom: 0.22rem;
-  color: var(--st-blue-text-color, #004b76);
+  color: var(--st-blue-text-color, #2a6354);
   letter-spacing: 0.09em;
 }
 
@@ -248,8 +248,8 @@ COMPONENT_CSS = """
 .context-count {
   flex: 0 0 auto;
   padding: 0.34rem 0.66rem;
-  color: var(--st-blue-text-color, #004b76);
-  border-color: var(--st-blue-color, #005eb8);
+  color: var(--st-blue-text-color, #2a6354);
+  border-color: var(--st-blue-color, #1f4f3f);
   background: var(--st-background-color, #f7f9fa);
   font-size: 0.76rem;
   font-weight: 700;
@@ -284,7 +284,7 @@ COMPONENT_CSS = """
   left: 0;
   height: 3px;
   content: "";
-  background: var(--st-primary-color, #005eb8);
+  background: var(--st-primary-color, #1f4f3f);
 }
 
 .kpi-card[data-tone="success"]::before { background: var(--st-green-color, #006747); }
@@ -341,9 +341,9 @@ COMPONENT_CSS = """
 .status-chip {
   gap: 0.34rem;
   padding: 0.25rem 0.48rem;
-  color: var(--st-blue-text-color, #004b76);
-  border-color: var(--st-blue-color, #005eb8);
-  background: var(--st-blue-background-color, #eaf5fc);
+  color: var(--st-blue-text-color, #2a6354);
+  border-color: var(--st-blue-color, #1f4f3f);
+  background: var(--st-blue-background-color, #eff4f3);
   font-size: 0.64rem;
   font-weight: 700;
   letter-spacing: 0.03em;
@@ -418,7 +418,7 @@ COMPONENT_CSS = """
 .chart-index {
   flex: 0 0 auto;
   padding-top: 0.1rem;
-  color: var(--st-primary-color, #005eb8);
+  color: var(--st-primary-color, #1f4f3f);
   font-family: var(--st-code-font, monospace);
   font-size: 0.66rem;
   font-weight: 700;
@@ -442,7 +442,7 @@ COMPONENT_CSS = """
   margin-right: 0.48rem;
   border-radius: 50%;
   content: "";
-  background: var(--st-primary-color, #005eb8);
+  background: #9dc03f;
   transform: translateY(-0.04rem);
 }
 
@@ -462,7 +462,7 @@ COMPONENT_CSS = """
   height: 1.4rem;
   padding: 0.16rem;
   border-radius: var(--st-base-radius, 6px);
-  background: var(--st-primary-color, #005eb8);
+  background: var(--st-primary-color, #1f4f3f);
 }
 
 .brand-mark span { border-radius: 1px; background: var(--st-background-color, #fff); }

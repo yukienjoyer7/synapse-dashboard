@@ -10,9 +10,10 @@ COLORS = {
     "muted": "#768692",
     "grid": "#E8EDEE",
     "surface": "#FFFFFF",
-    "primary": "#005EB8",
-    "primary_dark": "#003087",
-    "teal": "#007D79",
+    "primary": "#1F4F3F",
+    "primary_dark": "#2A6354",
+    "teal": "#3C7863",
+    "lime": "#9DC03F",
     "purple": "#6929C4",
     "cyan": "#1192E8",
     "success": "#006747",
@@ -23,8 +24,8 @@ COLORS = {
 }
 
 CATEGORICAL = [
-    "#005EB8",
-    "#007D79",
+    "#1F4F3F",
+    "#3C7863",
     "#6929C4",
     "#1192E8",
     "#9F1853",
@@ -34,12 +35,12 @@ CATEGORICAL = [
 ]
 
 MATURITY_SCALE = [
-    [0.00, "#EAF5FC"],
-    [0.20, "#CDE6F7"],
-    [0.40, "#8FCDEB"],
-    [0.60, "#41B6E6"],
-    [0.80, "#005EB8"],
-    [1.00, "#003087"],
+    [0.00, "#EFF4F3"],
+    [0.20, "#9AB9AE"],
+    [0.40, "#457E6A"],
+    [0.60, "#306A59"],
+    [0.80, "#265C4D"],
+    [1.00, "#1F4F3F"],
 ]
 
 TIER_COLORS = {

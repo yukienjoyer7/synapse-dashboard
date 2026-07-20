@@ -1,10 +1,10 @@
 [theme]
 base = "light"
-primaryColor = "#005EB8"
+primaryColor = "#1F4F3F"
 backgroundColor = "#F7F9FA"
 secondaryBackgroundColor = "#FFFFFF"
 textColor = "#212B32"
-linkColor = "#005EB8"
+linkColor = "#1F4F3F"
 borderColor = "#D8DDE0"
 redColor = "#A2191F"
 redBackgroundColor = "#FFF1F1"
@@ -15,13 +15,13 @@ orangeTextColor = "#7A5B00"
 greenColor = "#006747"
 greenBackgroundColor = "#EAF6EE"
 greenTextColor = "#006747"
-blueColor = "#005EB8"
-blueBackgroundColor = "#EAF5FC"
-blueTextColor = "#004B76"
+blueColor = "#1F4F3F"
+blueBackgroundColor = "#EFF4F3"
+blueTextColor = "#2A6354"
 violetColor = "#6929C4"
 grayColor = "#4C6272"
-chartCategoricalColors = ["#005EB8", "#007D79", "#6929C4", "#1192E8", "#9F1853", "#198038", "#002D9C", "#B28600"]
-chartSequentialColors = ["#EAF5FC", "#D6EBF8", "#B8DCF2", "#91C7E8", "#67AFDC", "#3D94CF", "#1678C1", "#005EB8", "#004B92", "#00386D"]
+chartCategoricalColors = ["#1F4F3F", "#3C7863", "#6929C4", "#1192E8", "#9F1853", "#198038", "#002D9C", "#B28600"]
+chartSequentialColors = ["#EFF4F3", "#C0D3CD", "#90B2A7", "#619281", "#3A7662", "#336E5C", "#2C6656", "#275E4F", "#235647", "#1F4F3F"]
 dataframeBorderColor = "#D8DDE0"
 dataframeHeaderBackgroundColor = "#F2F4F5"
 # Generic families keep the interface deterministic when the dashboard runs offline.
@@ -43,7 +43,7 @@ backgroundColor = "#F2F4F5"
 secondaryBackgroundColor = "#FFFFFF"
 textColor = "#212B32"
 borderColor = "#D8DDE0"
-primaryColor = "#005EB8"
+primaryColor = "#1F4F3F"
 
 [browser]
 gatherUsageStats = false
